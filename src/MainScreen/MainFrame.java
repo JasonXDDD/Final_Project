@@ -2,6 +2,7 @@ package MainScreen;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Color;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
@@ -10,46 +11,46 @@ import java.awt.event.ComponentListener;
  */
 public class MainFrame extends JFrame implements ComponentListener{
     private JLayeredPane MF_lpLayer;
-    private JSplitPane test;
-
+    private JSplitPane MF_spAccountData;
+    private BookPanel pnBook;
 
     private ifAccountTool ifAT;
     private ImageIcon ifAT_iconHead;
 
-    private ifBookTool ifBT;
-    private String[] ifBT_strBookName;
+    private ifStoreTool ifST;
+    private String[] ifST_strBookName;
 
     public MainFrame(){
-        setLayout(null);
+        setLayout(new BorderLayout());
         MF_lpLayer = this.getLayeredPane();
         MF_lpLayer.setLayout(null);
 
-        test = new JSplitPane(JSplitPane.VERTICAL_SPLIT, true);
-        test.setDividerLocation(400);
-        test.setOneTouchExpandable(true);
-        test.setDividerSize(10);
-        test.setSize(280,1015);
-        getContentPane().add(test, BorderLayout.WEST);
+        MF_spAccountData = new JSplitPane(JSplitPane.VERTICAL_SPLIT, true);
+        MF_spAccountData.setDividerLocation(400);
+        MF_spAccountData.setOneTouchExpandable(true);
+        MF_spAccountData.setDividerSize(10);
+        MF_spAccountData.setSize(280, 1015);
+        getContentPane().add(MF_spAccountData, BorderLayout.WEST);
+
+        pnBook = new BookPanel();
+        pnBook.setSize(1920, 1015);
+        getContentPane().add(pnBook, BorderLayout.CENTER);
 
         ifAT_iconHead = new ImageIcon(getClass().getResource("account_head.png"));
         ifAT = new ifAccountTool(ifAT_iconHead, "柯博文", 37, 100);
         ifAT.setBounds(100, 100, 280, 400);
-        //MF_lpLayer.add(ifAT, new Integer(2500));
         ifAT.addComponentListener(this);
+        MF_spAccountData.add(ifAT);
 
-        test.add(ifAT);
-
-        ifBT_strBookName = new String[]{"Book1-XDD", "Book2-QAQ", "Book3-OwO",
+        ifST_strBookName = new String[]{"Book1-XDD", "Book2-QAQ", "Book3-OwO",
                 "Book1-XDD", "Book1-XDD", "Book1-XDD", "Book1-XDD", "Book1-XDD",
                 "Book1-XDD", "Book1-XDD", "Book1-XDD", "Book1-XDD", "Book1-XDD",
                 "Book1-XDD", "Book1-XDD", "Book1-XDD", "Book1-XDD", "Book1-XDD",
                 "Book1-XDD", "Book1-XDD", "Book1-XDD", "Book1-XDD", "Book1-XDD",};
-        ifBT = new ifBookTool(3, ifBT_strBookName);
-        ifBT.setBounds(500, 100, 280, 610);
-        //MF_lpLayer.add(ifBT, new Integer(2500));
-        ifBT.addComponentListener(this);
-
-        test.add(ifBT);
+        ifST = new ifStoreTool(3, ifST_strBookName);
+        ifST.setBounds(500, 100, 280, 610);
+        ifST.addComponentListener(this);
+        MF_spAccountData.add(ifST);
 
         setVisible(true);
         getContentPane().setBackground(Color.DARK_GRAY);

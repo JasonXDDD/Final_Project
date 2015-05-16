@@ -25,7 +25,7 @@ public class ifAccountTool extends JInternalFrame {
     private ToolBarAction ATtb_btnPlus;
 
     public ifAccountTool(ImageIcon head, String name, int usingsp, int totalsp){
-        super("AccountTool", false, true, true, false);
+        super("AccountTool", false, true, false, false);
         setLayout(null);
         lp_layer = this.getLayeredPane();
 
@@ -55,7 +55,6 @@ public class ifAccountTool extends JInternalFrame {
 
 
         ifAT_toolbar = new JToolBar(JToolBar.HORIZONTAL);
-        ifAT_toolbar.setOrientation();
         ifAT_toolbar.setLayout(new FlowLayout(FlowLayout.RIGHT, 15, 5));
         ifAT_toolbar.setFloatable(false);
         ifAT_toolbar.setBackground(Color.GRAY);
@@ -86,6 +85,7 @@ public class ifAccountTool extends JInternalFrame {
 
         setVisible(true);
         getContentPane().setBackground(Color.GRAY);
+
     }
 
 
