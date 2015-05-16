@@ -14,7 +14,6 @@ public class BookNode extends JPanel {
         setLayout(new BorderLayout());
 
         bn_btnShow = new JButton(head);
-        bn_btnShow.setSize(head.getIconWidth(), head.getIconHeight());
         bn_btnShow.setBackground(Color.GRAY);
         //bn_btnShow.setLocation(5, 5);
         add(bn_btnShow);
@@ -24,5 +23,6 @@ public class BookNode extends JPanel {
         add(bn_lblName, BorderLayout.SOUTH);
 
         setBackground(Color.yellow);
+        setSize(250,500);
     }
 }

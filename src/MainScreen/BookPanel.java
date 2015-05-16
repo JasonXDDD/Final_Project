@@ -3,6 +3,8 @@ package MainScreen;
 import PublicClass.BookData;
 import PublicClass.BookNode;
 import PublicClass.ToolBarAction;
+import PublicClass.WrapLayout;
+import javafx.scene.control.ScrollBar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,7 +35,7 @@ public class BookPanel extends JPanel{
         setLayout(new BorderLayout());
         sp_scroll = new ScrollPane();
 
-        ceter = new JPanel(new FlowLayout(FlowLayout.LEADING, 100, 60));
+        ceter = new JPanel(new WrapLayout(FlowLayout.LEADING, 100, 60));
         bottom = new JPanel();
 
         bk = new BookData();
@@ -117,6 +119,7 @@ public class BookPanel extends JPanel{
 
         add(BT_toolbar, BorderLayout.NORTH);
 
+        ceter.setSize(1000,1500);
         sp_scroll.add(ceter);
         add(sp_scroll, BorderLayout.CENTER);
         ceter.setBackground(Color.DARK_GRAY);
