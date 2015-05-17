@@ -1,15 +1,10 @@
 package MainScreen;
 
-import PublicClass.BookData;
-import PublicClass.BookNode;
-import PublicClass.ToolBarAction;
-import PublicClass.WrapLayout;
-import javafx.scene.control.ScrollBar;
+import DataClass.BookData;
+import PublicClass.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.print.Printable;
-import java.security.PrivateKey;
 import java.util.ArrayList;
 
 /**
@@ -24,108 +19,54 @@ public class BookPanel extends JPanel{
     private JPanel ceter;
     private JPanel bottom;
 
-    private JToolBar BT_toolbar;
-    private ToolBarAction BT_btnAdd;
-    private ToolBarAction BT_btnEdit;
-    private ToolBarAction BT_btnDel;
+    private ToolBar BT_toolbar;
 
     private ScrollPane sp_scroll;
 
     public BookPanel(){
         setLayout(new BorderLayout());
         sp_scroll = new ScrollPane();
-
-        ceter = new JPanel(new WrapLayout(FlowLayout.LEADING, 100, 60));
+        ceter = new JPanel(new WrapLayout(FlowLayout.LEADING, 60, 60));
         bottom = new JPanel();
 
-        bk = new BookData();
-        bk.setBk_Name("Book1");
-        bk.setBk_Pic(new ImageIcon(getClass().getResource("book_head.jpg")));
-        lsbk.add(bk);
-
-        bn = new BookNode(bk.getBk_Pic(), bk.getBk_Name());
-        ceter.add(bn);
-        lsbn.add(bn);
-
-        bk = new BookData();
-        bk.setBk_Name("Book2");
-        bk.setBk_Pic(new ImageIcon(getClass().getResource("book2_head.jpg")));
-        lsbk.add(bk);
-
-        bn = new BookNode(bk.getBk_Pic(), bk.getBk_Name());
-        ceter.add(bn);
-        lsbn.add(bn);
-        bk = new BookData();
-        bk.setBk_Name("Book3");
-        bk.setBk_Pic(new ImageIcon(getClass().getResource("book3_head.jpg")));
-        lsbk.add(bk);
-
-        bn = new BookNode(bk.getBk_Pic(), bk.getBk_Name());
-        ceter.add(bn);
-        lsbn.add(bn);
-
-        bk = new BookData();
-        bk.setBk_Name("Book4");
-        bk.setBk_Pic(new ImageIcon(getClass().getResource("book4_head.jpg")));
-        lsbk.add(bk);
-
-        bn = new BookNode(bk.getBk_Pic(), bk.getBk_Name());
-        ceter.add(bn);
-        lsbn.add(bn);
-
-        bk = new BookData();
-        bk.setBk_Name("Book5");
-        bk.setBk_Pic(new ImageIcon(getClass().getResource("book5_head.jpg")));
-        lsbk.add(bk);
-
-        bn = new BookNode(bk.getBk_Pic(), bk.getBk_Name());
-        ceter.add(bn);
-        lsbn.add(bn);
-        bk = new BookData();
-
-        bk.setBk_Name("Book6");
-        bk.setBk_Pic(new ImageIcon(getClass().getResource("book6_head.jpg")));
-        lsbk.add(bk);
-
-        bn = new BookNode(bk.getBk_Pic(), bk.getBk_Name());
-        ceter.add(bn);
-        lsbn.add(bn);
-
-        BT_toolbar = new JToolBar(JToolBar.HORIZONTAL);
-        BT_toolbar.setLayout(new FlowLayout(FlowLayout.RIGHT, 15, 5));
-        BT_toolbar.setBackground(Color.GRAY);
-        BT_toolbar.setFloatable(false);
-
-        BT_btnAdd = new ToolBarAction("Add", null);
-        BT_btnAdd.setBackground(Color.GRAY);
-        BT_btnAdd.setForeground(Color.WHITE);
-        BT_btnAdd.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        BT_btnAdd.setFont(new Font("微軟正黑體", Font.BOLD, 16));
-        BT_toolbar.add(BT_btnAdd);
-
-        BT_btnEdit = new ToolBarAction("Edit", null);
-        BT_btnEdit.setBackground(Color.GRAY);
-        BT_btnEdit.setForeground(Color.WHITE);
-        BT_btnEdit.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        BT_btnEdit.setFont(new Font("微軟正黑體", Font.BOLD, 16));
-        BT_toolbar.add(BT_btnEdit);
-
-        BT_btnDel = new ToolBarAction("Delete", null);
-        BT_btnDel.setBackground(Color.GRAY);
-        BT_btnDel.setForeground(Color.WHITE);
-        BT_btnDel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        BT_btnDel.setFont(new Font("微軟正黑體", Font.BOLD, 16));
-        BT_toolbar.add(BT_btnDel);
-
-        add(BT_toolbar, BorderLayout.NORTH);
+        AddBook("Book1", new ImageIcon(getClass().getResource("ResourceData/book_head.jpg")));
+        AddBook("Book2", new ImageIcon(getClass().getResource("ResourceData/book2_head.jpg")));
+        AddBook("Book3", new ImageIcon(getClass().getResource("ResourceData/book3_head.jpg")));
+        AddBook("Book4", new ImageIcon(getClass().getResource("ResourceData/book4_head.jpg")));
+        AddBook("Book5", new ImageIcon(getClass().getResource("ResourceData/book5_head.jpg")));
+        AddBook("Book6", new ImageIcon(getClass().getResource("ResourceData/book6_head.jpg")));
 
         ceter.setSize(1000,1500);
+        ceter.setBackground(Color.DARK_GRAY);
         sp_scroll.add(ceter);
         add(sp_scroll, BorderLayout.CENTER);
-        ceter.setBackground(Color.DARK_GRAY);
-        add(bottom, BorderLayout.SOUTH);
-        bottom.setBackground(Color.DARK_GRAY);
+
+
+        BT_toolbar = new ToolBar();
+        BT_toolbar.AddTool("Add", null);
+        BT_toolbar.AddTool("Edit", null);
+        BT_toolbar.AddTool("Delete", null);
+        add(BT_toolbar, BorderLayout.NORTH);
+
+
+
+//        bottom.setBackground(Color.DARK_GRAY);
+//        add(bottom, BorderLayout.SOUTH);
+
 
         setBackground(Color.DARK_GRAY);
     }
+
+    public void AddBook(String name, ImageIcon show){
+        bk = new BookData();
+        bk.setBk_Name(name);
+        bk.setBk_Pic(show);
+        lsbk.add(bk);
+
+        bn = new BookNode(bk.getBk_Pic(), bk.getBk_Name());
+        ceter.add(bn);
+        lsbn.add(bn);
+
+    }
+
 }

@@ -1,7 +1,6 @@
-package PublicClass;
+package DataClass;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * Created by JASON_ on 2015/5/15.

@@ -18,7 +18,7 @@ public class BookNode extends JPanel {
         //bn_btnShow.setLocation(5, 5);
         add(bn_btnShow);
 
-        bn_lblName = new JLabel(name,SwingConstants.CENTER);
+        bn_lblName = new JLabel(name, JLabel.CENTER);
         bn_lblName.setFont(new Font("微軟正黑體", Font.BOLD, 14));
         add(bn_lblName, BorderLayout.SOUTH);
 
