@@ -43,7 +43,7 @@ public class BookPanel extends JPanel{
         AddBook("Book9", new ImageIcon(getClass().getResource("ResourceData/book9_head.jpg")));
 
         pnCeter.setSize(1000, 1500);
-        pnCeter.setBackground(Color.DARK_GRAY);
+        pnCeter.setBackground(Color.WHITE);
         sp_scroll.add(pnCeter);
         add(sp_scroll, BorderLayout.CENTER);
 
@@ -55,11 +55,12 @@ public class BookPanel extends JPanel{
         add(BT_toolbar, BorderLayout.NORTH);
 
         pnBottom.add(bookInfor);
-        pnBottom.setBackground(Color.GRAY);
+        pnBottom.setBorder(BorderFactory.createLineBorder(Color.black));
+        pnBottom.setBackground(Color.WHITE);
         add(pnBottom, BorderLayout.SOUTH);
 
 
-        setBackground(Color.DARK_GRAY);
+        setBackground(Color.WHITE);
     }
 
     public void AddBook(String name, ImageIcon show){

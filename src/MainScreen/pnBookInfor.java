@@ -133,14 +133,14 @@ public class pnBookInfor extends JPanel {
 
         }
 
-        setBackground(Color.GRAY);
+        setBackground(Color.WHITE);
     }
 
     public void SetLabel(JLabel lbl){
-        lbl.setBorder(BorderFactory.createLineBorder(Color.black));
+        //lbl.setBorder(BorderFactory.createLineBorder(Color.black));
         lbl.setHorizontalAlignment(JLabel.LEFT);
         lbl.setFont(new Font("微軟正黑體", Font.BOLD, 18));
-        lbl.setForeground(Color.cyan);
+        lbl.setForeground(Color.BLACK);
     }
 
 }

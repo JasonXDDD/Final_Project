@@ -25,7 +25,7 @@ public class ifAccountTool extends JInternalFrame {
         lp_layer = this.getLayeredPane();
 
         ifAT_iclblHead = new JLabel(head);
-        ifAT_iclblHead.setBorder(BorderFactory.createLineBorder(Color.black));
+        ifAT_iclblHead.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         ifAT_iclblHead.setBounds(20, 20, 230, 230);
         ifAT_iclblHead.setBackground(Color.BLACK);
         getContentPane().add(ifAT_iclblHead);
@@ -53,7 +53,7 @@ public class ifAccountTool extends JInternalFrame {
         lp_layer.add(ifAT_toolbar, BorderLayout.SOUTH, new Integer(2550));
 
         setVisible(true);
-        getContentPane().setBackground(Color.GRAY);
+        getContentPane().setBackground(Color.WHITE);
 
     }
 

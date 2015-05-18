@@ -16,14 +16,14 @@ public class ToolBar extends JToolBar {
         super(JToolBar.HORIZONTAL);
         setLayout(new FlowLayout(FlowLayout.RIGHT, 15, 5));
         setFloatable(false);
-        setBackground(Color.GRAY);
+        setBackground(Color.WHITE);
     }
 
     public void AddTool(String name, ImageIcon head) {
         btnTool = new ToolBarAction(name, head);
-        btnTool.setBackground(Color.GRAY);
-        btnTool.setForeground(Color.WHITE);
-        btnTool.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+        btnTool.setBackground(Color.WHITE);
+        btnTool.setForeground(Color.BLACK);
+        btnTool.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         btnTool.setFont(new Font("微軟正黑體", Font.BOLD, 16));
 
         Tools.add(btnTool);

@@ -31,7 +31,7 @@ public class ifStoreTool extends JInternalFrame {
         this.lsBS_strName = bookname;
         ifST_lsBookStore = new JList(lsBS_strName);
         ifST_lsBookStore.setBorder(BorderFactory.createTitledBorder("BookStore"));
-        ifST_lsBookStore.setBackground(Color.gray);
+        ifST_lsBookStore.setBackground(Color.WHITE);
         ifST_lsBookStore.setFont(lsBS_font);
 
         sp_scroll.add(ifST_lsBookStore);
@@ -46,6 +46,6 @@ public class ifStoreTool extends JInternalFrame {
         getContentPane().add(ifST_toolbar, BorderLayout.SOUTH);
 
         setVisible(true);
-        getContentPane().setBackground(Color.GRAY);
+        getContentPane().setBackground(Color.WHITE);
     }
 }

@@ -20,11 +20,11 @@ public class BookNode extends JPanel {
 
         GetPic = head.getImage();
 
-        fixSize = GetPic.getScaledInstance(SetPicWidth(head, 300), 300, Image.SCALE_SMOOTH);
+        fixSize = GetPic.getScaledInstance(SetPicWidth(head, 200), 200, Image.SCALE_SMOOTH);
         Show = new ImageIcon(fixSize);
 
         bn_btnShow = new JButton(Show);
-        bn_btnShow.setBackground(Color.GRAY);
+        bn_btnShow.setBackground(Color.WHITE);
         //bn_btnShow.setLocation(5, 5);
         add(bn_btnShow);
 
@@ -32,7 +32,7 @@ public class BookNode extends JPanel {
         bn_lblName.setFont(new Font("微軟正黑體", Font.BOLD, 14));
         add(bn_lblName, BorderLayout.SOUTH);
 
-        setBackground(Color.yellow);
+        setBackground(Color.WHITE);
         setSize(250,500);
     }
 
