@@ -2,15 +2,22 @@ package DialogData;
 
 import PublicClass.GBConstraint;
 import PublicClass.ScreenSize;
+import ServerConnect.sRegist;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+
 
 /**
  * Created by JASON_ on 2015/5/25.
  */
-public class Regist extends JDialog {
+public class Regist extends JDialog implements ActionListener{
     private ScreenSize scSize;
+    private sRegist sr;
+
     private JLabel lbl;
     private JTextField enter_name;
     private JTextField enter_email;
@@ -36,7 +43,8 @@ public class Regist extends JDialog {
 
 
         for(int i = 0; i <= 6; i++){
-            gbc.setValue(gbc, position[i][0], position[i][1], position[i][2], position[i][3]);
+            gbc.setValue(gbc, position[i][0], position[i][1],
+                              position[i][2], position[i][3]);
 
             switch (i){
                 case 0:
@@ -70,6 +78,7 @@ public class Regist extends JDialog {
                 case 6:
                     create = new JButton("Create");
                     getContentPane().add(create, gbc);
+                    create.addActionListener(this);
                     break;
             }
         }
@@ -78,5 +87,22 @@ public class Regist extends JDialog {
         pack();
         setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 
+    }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == create){
+            try {
+                sr = new sRegist(enter_name.getText(), enter_email.getText(),
+                        new String(enter_passwd.getPassword()));
+                System.out.println( "On Dialog: Name: " + enter_name.getText()+
+                                    "  email: " + enter_email.getText()+
+                                    "  password: " + new String(enter_passwd.getPassword()));
+            }
+            catch (IOException I){}
+
+            dispose();
+        }
     }
 }

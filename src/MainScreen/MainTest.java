@@ -8,7 +8,7 @@ import DialogData.Regist;
 public class MainTest {
     public static void main(String[] args){
         MainFrame testFrame = new MainFrame();
-        //Regist regist = new Regist(testFrame, "Regist", true);
-        //regist.setVisible(true);
+        Regist regist = new Regist(testFrame, "Regist", true);
+        regist.setVisible(true);
     }
 }
