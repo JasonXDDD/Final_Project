@@ -1,5 +1,7 @@
 package MainScreen;
 
+import PublicClass.ScreenSize;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Color;
@@ -8,6 +10,7 @@ import java.awt.Color;
  * Created by JASON_ on 2015/5/13.
  */
 public class MainFrame extends JFrame{
+    private ScreenSize scSize;
     private JLayeredPane lp_Layer;
 
     private spAccountData MF_spAccountData;
@@ -15,6 +18,7 @@ public class MainFrame extends JFrame{
 
     public MainFrame(){
         setLayout(new BorderLayout());
+        scSize = new ScreenSize();
         lp_Layer = this.getLayeredPane();
         lp_Layer.setLayout(null);
 
@@ -22,13 +26,12 @@ public class MainFrame extends JFrame{
         getContentPane().add(MF_spAccountData, BorderLayout.WEST);
 
         MF_pnBook = new BookPanel();
-//        MF_pnBook.setSize(1920, 1015);
         getContentPane().add(MF_pnBook, BorderLayout.CENTER);
 
 
         setVisible(true);
         getContentPane().setBackground(Color.DARK_GRAY);
-        setSize(1280, 720);
+        setSize(scSize.getWidth(), scSize.getHeight());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
