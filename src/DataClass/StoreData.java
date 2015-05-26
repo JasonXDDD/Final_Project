@@ -10,7 +10,6 @@ public class StoreData {
     private ArrayList<BookData> Books = new ArrayList<BookData>();
     private BookData BookSample;
 
-    public StoreData(String name){
-        this.Store_Name = name;
+    public StoreData(){
     }
 }

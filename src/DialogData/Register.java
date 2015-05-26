@@ -1,8 +1,9 @@
 package DialogData;
 
+import MainScreen.MainFrame;
 import PublicClass.GBConstraint;
 import PublicClass.ScreenSize;
-import ServerConnect.sRegist;
+import ServerConnect.sRegister;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,9 +15,9 @@ import java.io.IOException;
 /**
  * Created by JASON_ on 2015/5/25.
  */
-public class Regist extends JDialog implements ActionListener{
+public class Register extends JDialog implements ActionListener{
     private ScreenSize scSize;
-    private sRegist sr;
+    private sRegister sr;
 
     private JLabel lbl;
     private JTextField enter_name;
@@ -34,8 +35,11 @@ public class Regist extends JDialog implements ActionListener{
                        {3,5,1,1}
     };
 
-    public Regist(JFrame f, String  str, boolean model){
+    public Register(JFrame f, String str, boolean model){
         super(f, str, model);
+
+        System.out.println("-----Register-----");
+
         gb.rowHeights = new int[]{30, 30, 30, 30, 30, 30, 30};
         gb.columnWidths = new int[]{50, 30, 30, 130, 50};
         setLayout(gb);
@@ -87,6 +91,7 @@ public class Regist extends JDialog implements ActionListener{
         pack();
         setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 
+
     }
 
 
@@ -94,7 +99,7 @@ public class Regist extends JDialog implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == create){
             try {
-                sr = new sRegist(enter_name.getText(), enter_email.getText(),
+                sr = new sRegister(enter_name.getText(), enter_email.getText(),
                         new String(enter_passwd.getPassword()));
                 System.out.println( "On Dialog: Name: " + enter_name.getText()+
                                     "  email: " + enter_email.getText()+
@@ -103,6 +108,9 @@ public class Regist extends JDialog implements ActionListener{
             catch (IOException I){}
 
             dispose();
+            System.out.println();
+
+            MainFrame testFrame = new MainFrame();
         }
     }
 }

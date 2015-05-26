@@ -16,7 +16,8 @@ public class spAccountData extends JSplitPane {
         super(JSplitPane.VERTICAL_SPLIT, true);
 
         ifAT_iconHead = new ImageIcon(getClass().getResource("ResourceData/account_head.png"));
-        ifAT = new ifAccountTool(ifAT_iconHead, "柯博文", 37, 100);
+        System.out.println("In frame data: " + MainTest.accountData.getAccount_Name());
+        ifAT = new ifAccountTool(ifAT_iconHead, MainTest.accountData.getAccount_Name(), 37, 100);
         ifAT.setBounds(100, 100, 280, 400);
         //ifAT.addComponentListener(this);
         add(ifAT);

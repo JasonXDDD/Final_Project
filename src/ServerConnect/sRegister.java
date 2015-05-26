@@ -13,7 +13,7 @@ import java.net.URL;
 /**
  * Created by JASON_ on 2015/5/26.
  */
-public class sRegist {
+public class sRegister {
     private URL ADD_URL;
     private SetURL urlMod = new SetURL();
 
@@ -21,7 +21,7 @@ public class sRegist {
     private HttpURLConnection connection = null;
 
 
-    public sRegist(String name, String email, String password) throws IOException{
+    public sRegister(String name, String email, String password) throws IOException{
         try {
             ADD_URL = new URL(urlMod.ChooseRequest(sRegist));
             connection = (HttpURLConnection) ADD_URL.openConnection();
@@ -39,7 +39,7 @@ public class sRegist {
 
             JSONObject obj = new JSONObject();
             obj = urlMod.PrintInput(connection, obj);
-            SetData(obj, MainTest.account);
+            SetData(obj, MainTest.accountData);
 
             connection.disconnect();
         }

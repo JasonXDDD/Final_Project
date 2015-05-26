@@ -21,6 +21,7 @@ public class ToolBar extends JToolBar {
 
     public void AddTool(String name, ImageIcon head) {
         btnTool = new ToolBarAction(name, head);
+        btnTool.addActionListener(this.btnTool);
         btnTool.setBackground(Color.WHITE);
         btnTool.setForeground(Color.BLACK);
         btnTool.setBorder(BorderFactory.createLineBorder(Color.WHITE));

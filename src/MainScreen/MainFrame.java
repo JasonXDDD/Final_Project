@@ -17,6 +17,8 @@ public class MainFrame extends JFrame{
     private BookPanel MF_pnBook;
 
     public MainFrame(){
+        System.out.println("-----MainFrame-----");
+
         setLayout(new BorderLayout());
         scSize = new ScreenSize();
         lp_Layer = this.getLayeredPane();
@@ -33,6 +35,8 @@ public class MainFrame extends JFrame{
         getContentPane().setBackground(Color.DARK_GRAY);
         setSize(scSize.getWidth(), scSize.getHeight());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        System.out.println();
     }
 
 }

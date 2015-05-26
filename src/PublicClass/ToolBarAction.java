@@ -19,6 +19,7 @@ public class ToolBarAction extends JButton implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand() == "aEdit"){
             EditAccount editAccount = new EditAccount(null, "EditAccount", true);
+            editAccount.setVisible(true);
         }
     }
 
