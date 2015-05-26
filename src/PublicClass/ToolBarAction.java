@@ -2,6 +2,7 @@ package PublicClass;
 
 import DialogData.EditAccount;
 import MainScreen.MainFrame;
+import MainScreen.MainTest;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -20,6 +21,9 @@ public class ToolBarAction extends JButton implements ActionListener{
         if(e.getActionCommand() == "aEdit"){
             EditAccount editAccount = new EditAccount(null, "EditAccount", true);
             editAccount.setVisible(true);
+
+            MainTest.testFrame.getMF_spAccountData().getIfAT().getIfAT_lblName().
+                                setText(MainTest.accountData.getAccount_Name());
         }
     }
 

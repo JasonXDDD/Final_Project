@@ -17,16 +17,19 @@ public class SetURL {
     private String ADD_URL;
     private static final int sRegist = 1;
     private static final int sLogin = 2;
+    private static final int sEditAccount = 3;
 
     public SetURL(){ }
 
 
-    public String ChooseRequest(int type){
+    public String ChooseRequest(int type, int ID){
         switch(type){
             case sRegist:
                 ADD_URL = new String("http://163.13.128.116:5000/api/user"); break;
             case sLogin:
                 ADD_URL = new String("http://163.13.128.116:5000/api/user/login"); break;
+            case sEditAccount:
+                ADD_URL = new String("http://163.13.128.116:5000/api/user/" + ID); break;
         }
         return ADD_URL;
     }

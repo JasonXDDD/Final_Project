@@ -1,5 +1,6 @@
 package ServerConnect;
 
+import DataClass.AccountData;
 import MainScreen.MainTest;
 import org.json.JSONObject;
 
@@ -10,39 +11,35 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Created by JASON_ on 2015/5/26.
+ * Created by JASON_ on 2015/5/27.
  */
-public class sLogin {
+public class sEditAccount {
     private URL ADD_URL;
     private SetURL urlMod = new SetURL();
-    private String Answer;
     private int respondcode = 0;
 
-    private static final int sLogin = 2;
+    private static final int sEditAccount = 3;
     private HttpURLConnection connection = null;
 
-    public sLogin(String token, String email, String password) throws IOException {
+
+    public sEditAccount(String name, String password, int ID) throws IOException {
         try {
-            ADD_URL = new URL(urlMod.ChooseRequest(sLogin, 0));
+            ADD_URL = new URL(urlMod.ChooseRequest(sEditAccount, ID));
             connection = (HttpURLConnection) ADD_URL.openConnection();
 
-            connection = urlMod.Astribute(connection, "POST");
+            connection = urlMod.Astribute(connection, "PUT");
 
             connection.setRequestProperty("Content-Type", "application/json");
-            connection.setRequestProperty("token", token);
 
             JSONObject user = new JSONObject();
-            user.put("email", email);
+            user.put("username", name);
             user.put("password", password);
 
             urlMod.SendToServer(connection, user);
 
-            JSONObject obj = null;
+            JSONObject obj = new JSONObject();
             obj = urlMod.PrintInput(connection, obj);
             respondcode = connection.getResponseCode();
-
-            Answer = obj.getString("message");
-            System.out.println("Answer: " + Answer + " RespondCode: " + respondcode);
 
             if(respondcode/100 == 2) {
                 urlMod.SetData(obj, MainTest.accountData);
@@ -62,18 +59,7 @@ public class sLogin {
         }
     }
 
-    public String getAnswer() {
-        return Answer;
-    }
-
     public int getRespondcode() {
         return respondcode;
     }
-    //    public static void main(String[] args) throws IOException{
-//        sGetToken sg = new sGetToken();
-//        Gobel gbl = new Gobel();
-//        ServerConnect.sLogin sl = new sLogin(gbl.getToken(), "JasonXDDD", "QQ");
-//        System.out.println("Token: " + gbl.getToken());
-//    }
-
 }

@@ -1,6 +1,7 @@
 package DialogData;
 
 import MainScreen.MainFrame;
+import MainScreen.MainTest;
 import PublicClass.GBConstraint;
 import PublicClass.ScreenSize;
 import ServerConnect.Gobel;
@@ -88,7 +89,8 @@ public class Login extends JDialog implements ActionListener{
             }
         }
 
-        setLocation(scSize.getWidth()/2-145, scSize.getHeight()/2-90);
+        setLocation(scSize.getWidth()/2 - this.getWidth()/2,
+                    scSize.getHeight()/2- this.getHeight()/2);
         pack();
         setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 
@@ -111,7 +113,7 @@ public class Login extends JDialog implements ActionListener{
             if (sl.getRespondcode()/100 == 2) {
                 System.out.println();
                 dispose();
-                MainFrame testFrame = new MainFrame();
+                MainTest.testFrame = new MainFrame();
             }
             else Error.setText("帳號或是密碼不存在!");
         }

@@ -38,4 +38,11 @@ public class spAccountData extends JSplitPane {
         //setSize(280, 1015);
     }
 
+    public ifAccountTool getIfAT() {
+        return ifAT;
+    }
+
+    public void setIfAT(ifAccountTool ifAT) {
+        this.ifAT = ifAT;
+    }
 }

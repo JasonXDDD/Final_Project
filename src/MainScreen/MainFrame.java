@@ -39,4 +39,11 @@ public class MainFrame extends JFrame{
         System.out.println();
     }
 
+    public spAccountData getMF_spAccountData() {
+        return MF_spAccountData;
+    }
+
+    public void setMF_spAccountData(spAccountData MF_spAccountData) {
+        this.MF_spAccountData = MF_spAccountData;
+    }
 }

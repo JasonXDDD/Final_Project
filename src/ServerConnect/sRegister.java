@@ -24,7 +24,7 @@ public class sRegister {
 
     public sRegister(String name, String email, String password) throws IOException{
         try {
-            ADD_URL = new URL(urlMod.ChooseRequest(sRegist));
+            ADD_URL = new URL(urlMod.ChooseRequest(sRegist, 0));
             connection = (HttpURLConnection) ADD_URL.openConnection();
 
             connection = urlMod.Astribute(connection, "POST");

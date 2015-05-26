@@ -57,4 +57,11 @@ public class ifAccountTool extends JInternalFrame {
 
     }
 
+    public JLabel getIfAT_lblName() {
+        return ifAT_lblName;
+    }
+
+    public void setIfAT_lblName(JLabel ifAT_lblName) {
+        this.ifAT_lblName = ifAT_lblName;
+    }
 }
