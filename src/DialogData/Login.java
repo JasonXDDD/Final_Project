@@ -108,21 +108,19 @@ public class Login extends JDialog implements ActionListener{
 
             System.out.println("Check Answer: " + sl.getAnswer() + "  " +
                     sl.getAnswer().equals("Login successful"));
-            if (sl.getAnswer().equals("Login successful") == true) {
+            if (sl.getRespondcode()/100 == 2) {
                 System.out.println();
                 dispose();
                 MainFrame testFrame = new MainFrame();
             }
             else Error.setText("帳號或是密碼不存在!");
-
-
         }
 
         else if(e.getSource() == reg){
-            Register regist = new Register(null, "Regist", true);
+            Register register = new Register(null, "Regist", true);
             System.out.println();
             dispose();
-            regist.setVisible(true);
+            register.setVisible(true);
         }
     }
 }

@@ -1,5 +1,6 @@
 package ServerConnect;
 
+import MainScreen.MainTest;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -15,6 +16,7 @@ public class sLogin {
     private URL ADD_URL;
     private SetURL urlMod = new SetURL();
     private String Answer;
+    private int respondcode = 0;
 
     private static final int sLogin = 2;
     private HttpURLConnection connection = null;
@@ -37,8 +39,14 @@ public class sLogin {
 
             JSONObject obj = null;
             obj = urlMod.PrintInput(connection, obj);
+            respondcode = connection.getResponseCode();
+
             Answer = obj.getString("message");
-            System.out.println("Answer: " + Answer);
+            System.out.println("Answer: " + Answer + " RespondCode: " + respondcode);
+
+            if(respondcode/100 == 2) {
+                urlMod.SetData(obj, MainTest.accountData);
+            }
 
             connection.disconnect();
         }
@@ -58,11 +66,14 @@ public class sLogin {
         return Answer;
     }
 
-    public static void main(String[] args) throws IOException{
-        sGetToken sg = new sGetToken();
-        Gobel gbl = new Gobel();
-        ServerConnect.sLogin sl = new sLogin(gbl.getToken(), "JasonXDDD", "QQ");
-        System.out.println("Token: " + gbl.getToken());
+    public int getRespondcode() {
+        return respondcode;
     }
+    //    public static void main(String[] args) throws IOException{
+//        sGetToken sg = new sGetToken();
+//        Gobel gbl = new Gobel();
+//        ServerConnect.sLogin sl = new sLogin(gbl.getToken(), "JasonXDDD", "QQ");
+//        System.out.println("Token: " + gbl.getToken());
+//    }
 
 }

@@ -16,6 +16,7 @@ import java.net.URL;
 public class sRegister {
     private URL ADD_URL;
     private SetURL urlMod = new SetURL();
+    private int respondcode = 0;
 
     private static final int sRegist = 1;
     private HttpURLConnection connection = null;
@@ -39,7 +40,11 @@ public class sRegister {
 
             JSONObject obj = new JSONObject();
             obj = urlMod.PrintInput(connection, obj);
-            SetData(obj, MainTest.accountData);
+            respondcode = connection.getResponseCode();
+
+            if(respondcode/100 == 2) {
+                urlMod.SetData(obj, MainTest.accountData);
+            }
 
             connection.disconnect();
         }
@@ -55,17 +60,8 @@ public class sRegister {
         }
     }
 
-    public void SetData(JSONObject obj, AccountData user){
-        user.setAccount_Name(obj.getString("username"));
-        user.setAccount_Password(obj.getString("password"));
-        user.setAccount_Email(obj.getString("email"));
-        user.setAccount_ID(obj.getInt("user_id"));
-        user.setAccount_deactivated(obj.getBoolean("deactivated"));
-
-        System.out.println("Userdata Name: " + user.getAccount_Name() +
-                            "  Password: " + user.getAccount_Password() +
-                            "  Email: " + user.getAccount_Email() +
-                            "  Id: " + user.getAccount_ID() +
-                            "  Deactivated: " + user.isAccount_deactivated());
+    public int getRespondcode() {
+        return respondcode;
     }
+
 }
