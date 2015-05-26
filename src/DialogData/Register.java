@@ -1,6 +1,7 @@
 package DialogData;
 
 import MainScreen.MainFrame;
+import MainScreen.MainTest;
 import PublicClass.GBConstraint;
 import PublicClass.ScreenSize;
 import ServerConnect.sRegister;
@@ -18,6 +19,7 @@ import java.io.IOException;
 public class Register extends JDialog implements ActionListener{
     private ScreenSize scSize;
     private sRegister sr;
+
 
     private JLabel lbl;
     private JLabel Error;
@@ -115,7 +117,7 @@ public class Register extends JDialog implements ActionListener{
             if(sr.getRespondcode()/100 == 2){
                 dispose();
                 System.out.println();
-                MainFrame testFrame = new MainFrame();
+                MainTest.testFrame = new MainFrame();
             }
             else
                 Error.setText("帳號已存在!");

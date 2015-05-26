@@ -14,6 +14,7 @@ public class MainTest {
     public static AccountData accountData = new AccountData();
     public static BookData bookData = new BookData();
     public static StoreData storeData = new StoreData();
+    public static MainFrame testFrame;
 
     public static void main(String[] args) throws IOException{
         String string;
