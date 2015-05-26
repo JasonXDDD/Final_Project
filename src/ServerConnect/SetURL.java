@@ -43,18 +43,38 @@ public class SetURL {
     }
 
 
-    public void PrintInput(HttpURLConnection connection) throws IOException{
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(connection.getInputStream()));
-        String lines;
-        StringBuffer sb = new StringBuffer("");
+    public JSONObject PrintInput(HttpURLConnection connection, JSONObject obj)
+                                                            throws IOException{
+        try {
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(connection.getInputStream()));
+            String lines;
+            StringBuffer sb = new StringBuffer("");
+            while ((lines = reader.readLine()) != null) {
+                lines = new String(lines.getBytes(), "utf-8");
+                sb.append(lines);
+            }
 
-        while ((lines = reader.readLine()) != null){
-            lines = new String(lines.getBytes(), "utf-8");
-            sb.append(lines);
+            System.out.println(sb);
+            obj = new JSONObject(sb.toString());
+            reader.close();
         }
-        System.out.println(sb);
-        reader.close();
+        catch (IOException I){
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(connection.getErrorStream()));
+            String lines;
+            StringBuffer sb = new StringBuffer("");
+            while ((lines = reader.readLine()) != null) {
+                lines = new String(lines.getBytes(), "utf-8");
+                sb.append(lines);
+            }
+
+            System.out.println(sb);
+            obj = new JSONObject(sb.toString());
+            reader.close();
+        }
+
+        return obj;
     }
 
 

@@ -46,7 +46,7 @@ public class ifAccountTool extends JInternalFrame {
         getContentPane().add(ifAT_pbSpace);
 
         ifAT_toolbar = new ToolBar();
-        ifAT_toolbar.AddTool("Edit", null);
+        ifAT_toolbar.AddTool("aEdit", null);
         ifAT_toolbar.AddTool("Plus", null);
         ifAT_toolbar.AddTool("Logout", null);
         lp_layer.setLayout(new BorderLayout());

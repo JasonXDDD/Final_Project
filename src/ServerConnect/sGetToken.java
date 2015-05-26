@@ -47,7 +47,7 @@ public class sGetToken {
 
 
             gbl.setToken(obj.getString("token"));
-            System.out.println("Token: " + gbl.getToken());
+            System.out.println("GetToken: " + gbl.getToken());
 
 
             connection.disconnect();

@@ -41,9 +41,9 @@ public class BookNode extends JPanel {
         int height = head.getIconHeight();
         int x = width * y / height;
 
-        System.out.println(head.getIconWidth());
-        System.out.println(head.getIconHeight());
-        System.out.println(x);
+        System.out.println("BookData Head: w: " + head.getIconWidth() +
+                            " h: " + head.getIconHeight() +
+                            " After w: " + x);
 
         return x;
     }

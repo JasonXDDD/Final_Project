@@ -1,5 +1,6 @@
 package TEST;
 
+import DialogData.EditAccount;
 import DialogData.Login;
 
 import javax.swing.*;
@@ -20,6 +21,7 @@ public class JDialog_Frame extends JFrame implements ActionListener{
 
         setVisible(true);
         setSize(500,900);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     @Override
@@ -27,12 +29,8 @@ public class JDialog_Frame extends JFrame implements ActionListener{
         String str = null;
 
         if(e.getSource() == XDD){
-            //JDialog jd = new JDialog(this,"Dialog",true);
-//            JDialog_Test jd = new JDialog_Test(this, "Dialog", true);
-//            jd.setVisible(true);
-
-            Login log = new Login(this, "XDD", true);
-            log.setVisible(true);
+            EditAccount editAccount = new EditAccount(null, "Edit Account", true);
+            editAccount.setVisible(true);
         }
     }
 }

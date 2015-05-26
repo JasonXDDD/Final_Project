@@ -1,5 +1,7 @@
 package ServerConnect;
 
+import DataClass.AccountData;
+import MainScreen.MainTest;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -35,7 +37,10 @@ public class sRegist {
 
             urlMod.SendToServer(connection, user);
 
-            urlMod.PrintInput(connection);
+            JSONObject obj = new JSONObject();
+            obj = urlMod.PrintInput(connection, obj);
+            SetData(obj, MainTest.account);
+
             connection.disconnect();
         }
         catch (MalformedURLException e) {
@@ -48,8 +53,19 @@ public class sRegist {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
 
+    public void SetData(JSONObject obj, AccountData user){
+        user.setAccount_Name(obj.getString("username"));
+        user.setAccount_Password(obj.getString("password"));
+        user.setAccount_Email(obj.getString("email"));
+        user.setAccount_ID(obj.getInt("user_id"));
+        user.setAccount_deactivated(obj.getBoolean("deactivated"));
 
-
+        System.out.println("Userdata Name: " + user.getAccount_Name() +
+                            "  Password: " + user.getAccount_Password() +
+                            "  Email: " + user.getAccount_Email() +
+                            "  Id: " + user.getAccount_ID() +
+                            "  Deactivated: " + user.isAccount_deactivated());
     }
 }
