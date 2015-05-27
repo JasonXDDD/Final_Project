@@ -21,22 +21,28 @@ public class Register extends JDialog implements ActionListener{
     private sRegister sr;
 
 
+
     private JLabel lbl;
     private JLabel Error;
     private JTextField enter_name;
     private JTextField enter_email;
     private JPasswordField enter_passwd;
     private JButton create;
+    private JButton log;
+
+    private JButton head;
 
     private GBConstraint gbc = new GBConstraint();
     private GridBagLayout gb = new GridBagLayout();
 
     private int[][] position = new int[][]{
-            {1,1,1,3},
-            {1,2,1,1}, {2,2,1,2},
-            {1,3,1,1}, {2,3,1,2},
-            {1,4,1,1}, {2,4,1,2},
-                       {3,6,1,1}
+                       {3,1,1,3},
+                       {3,2,1,1}, {4,2,1,2},
+                       {3,3,1,1}, {4,3,1,2},
+                       {3,4,1,1}, {4,4,1,2},
+                                  {5,6,1,1},
+             {0,7,1,1},{1,2,3,1}
+
     };
 
     public Register(JFrame f, String str, boolean model){
@@ -45,12 +51,12 @@ public class Register extends JDialog implements ActionListener{
         System.out.println("-----Register-----");
 
         gb.rowHeights = new int[]{30, 30, 30, 30, 30, 30, 30, 30};
-        gb.columnWidths = new int[]{50, 30, 30, 130, 50};
+        gb.columnWidths = new int[]{50, 90, 30, 30, 30, 130, 50};
         setLayout(gb);
         scSize = new ScreenSize();
 
 
-        for(int i = 0; i <= 7; i++){
+        for(int i = 0; i <= 9; i++){
             gbc.setValue(gbc, position[i][0], position[i][1],
                               position[i][2], position[i][3]);
 
@@ -89,13 +95,22 @@ public class Register extends JDialog implements ActionListener{
                     getContentPane().add(create, gbc);
                     create.addActionListener(this);
                     break;
+                case 8:
+                    log = new JButton("Login");
+                    getContentPane().add(log, gbc);
+                    log.addActionListener(this);
+                    break;
+                case 9:
+                    head = new JButton();
+                    getContentPane().add(head, gbc);
+                    head.addActionListener(this);
+                    break;
             }
         }
 
-        setLocation(scSize.getWidth()/2-160, scSize.getHeight()/2-105);
+        setLocation(scSize.getWidth() / 2 - 160, scSize.getHeight() / 2 - 105);
         pack();
-        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-
+        setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 
     }
 
@@ -121,6 +136,21 @@ public class Register extends JDialog implements ActionListener{
             }
             else
                 Error.setText("帳號已存在!");
+        }
+
+        else if(e.getSource() == log){
+            try {
+                dispose();
+                Login login = new Login(null, "Login", true);
+                login.setVisible(true);
+                System.out.println();
+            }
+            catch (IOException I){}
+        }
+
+        else if(e.getSource() == head){
+            FileDialog fd = new FileDialog(this, "FileDialog", FileDialog.LOAD);
+            fd.setVisible(true);
         }
     }
 }

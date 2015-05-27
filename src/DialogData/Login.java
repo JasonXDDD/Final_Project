@@ -89,8 +89,8 @@ public class Login extends JDialog implements ActionListener{
             }
         }
 
-        setLocation(scSize.getWidth()/2 - this.getWidth()/2,
-                    scSize.getHeight()/2- this.getHeight()/2);
+        setLocation(scSize.getWidth()/2 - 145,
+                    scSize.getHeight()/2- 105);
         pack();
         setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 
@@ -119,10 +119,12 @@ public class Login extends JDialog implements ActionListener{
         }
 
         else if(e.getSource() == reg){
-            Register register = new Register(null, "Regist", true);
-            System.out.println();
             dispose();
+            Register register = new Register(null, "Regist", true);
             register.setVisible(true);
+            System.out.println();
+
+
         }
     }
 }
