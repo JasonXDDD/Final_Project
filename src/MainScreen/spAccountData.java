@@ -15,11 +15,12 @@ public class spAccountData extends JSplitPane {
     public spAccountData(){
         super(JSplitPane.VERTICAL_SPLIT, true);
 
-        ifAT_iconHead = new ImageIcon(getClass().getResource("ResourceData/account_head.png"));
+        //ifAT_iconHead = new ImageIcon(getClass().getResource("ResourceData/account_head.png"));
         System.out.println("In frame data: " + MainTest.accountData.getAccount_Name());
-        ifAT = new ifAccountTool(ifAT_iconHead, MainTest.accountData.getAccount_Name(), 37, 100);
+        ifAT = new ifAccountTool(MainTest.accountData.getAccount_Head(),
+                                 MainTest.accountData.getAccount_Name(), 37, 100);
         ifAT.setBounds(100, 100, 280, 400);
-        //ifAT.addComponentListener(this);
+
         add(ifAT);
 
         ifST_strBookName = new String[]{"BookStore-XDD", "Store2-QAQ", "Store3-OwO",
@@ -29,20 +30,17 @@ public class spAccountData extends JSplitPane {
                 "Book1-XStoreD", "BooStoreDD", "StoreXDD", "BStoreD", "BStoreXDD"};
         ifST = new ifStoreTool(3, ifST_strBookName);
         ifST.setBounds(500, 100, 280, 610);
-        //ifST.addComponentListener(this);
+
         add(ifST);
 
         setDividerLocation(400);
         setOneTouchExpandable(true);
         setDividerSize(10);
-        //setSize(280, 1015);
+
     }
 
     public ifAccountTool getIfAT() {
         return ifAT;
     }
 
-    public void setIfAT(ifAccountTool ifAT) {
-        this.ifAT = ifAT;
-    }
 }

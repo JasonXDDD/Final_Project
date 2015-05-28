@@ -9,10 +9,11 @@ public class GBConstraint extends GridBagConstraints {
 
     public GBConstraint(){
         super.fill = GridBagConstraints.BOTH;
-        super.insets = new Insets(2,2,2,2);
+        super.insets = new Insets(3,3,3,3);
     };
 
-    public GridBagConstraints setValue(GridBagConstraints gbc, int x, int y, int height, int width){
+    public GridBagConstraints setValue
+                    (GridBagConstraints gbc, int x, int y, int height, int width){
         gbc.gridx = x;
         gbc.gridy = y;
         gbc.gridheight = height;

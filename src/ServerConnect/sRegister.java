@@ -4,6 +4,7 @@ import DataClass.AccountData;
 import MainScreen.MainTest;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
@@ -21,8 +22,9 @@ public class sRegister {
     private static final int sRegist = 1;
     private HttpURLConnection connection = null;
 
+    private sUploadFile suf;
 
-    public sRegister(String name, String email, String password) throws IOException{
+    public sRegister(String token, String name, String email, String password, File uploadfile) throws IOException{
         try {
             ADD_URL = new URL(urlMod.ChooseRequest(sRegist, 0));
             connection = (HttpURLConnection) ADD_URL.openConnection();
@@ -30,19 +32,21 @@ public class sRegister {
             connection = urlMod.Astribute(connection, "POST");
 
             connection.setRequestProperty("Content-Type", "application/json");
+            connection.setRequestProperty("token", token);
 
             JSONObject user = new JSONObject();
             user.put("username", name);
             user.put("email", email);
             user.put("password", password);
 
-            urlMod.SendToServer(connection, user);
+            urlMod.SendToServer(connection, user, null);
 
             JSONObject obj = new JSONObject();
             obj = urlMod.PrintInput(connection, obj);
             respondcode = connection.getResponseCode();
 
             if(respondcode/100 == 2) {
+                suf = new sUploadFile(token, uploadfile);
                 urlMod.SetData(obj, MainTest.accountData);
             }
 

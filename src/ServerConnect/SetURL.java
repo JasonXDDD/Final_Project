@@ -3,10 +3,9 @@ package ServerConnect;
 import DataClass.AccountData;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import javax.swing.*;
+import javax.xml.transform.stream.StreamSource;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.util.stream.Stream;
 
@@ -18,6 +17,7 @@ public class SetURL {
     private static final int sRegist = 1;
     private static final int sLogin = 2;
     private static final int sEditAccount = 3;
+    private static final int sUploadFile = 4;
 
     public SetURL(){ }
 
@@ -30,6 +30,8 @@ public class SetURL {
                 ADD_URL = new String("http://163.13.128.116:5000/api/user/login"); break;
             case sEditAccount:
                 ADD_URL = new String("http://163.13.128.116:5000/api/user/" + ID); break;
+            case sUploadFile:
+                ADD_URL = new String("http://163.13.128.116:5000/api/upload"); break;
         }
         return ADD_URL;
     }
@@ -73,6 +75,7 @@ public class SetURL {
                 sb.append(lines);
             }
 
+
             System.out.println(sb);
             obj = new JSONObject(sb.toString());
             reader.close();
@@ -82,10 +85,11 @@ public class SetURL {
     }
 
 
-    public void SendToServer(HttpURLConnection connection, JSONObject user)
+    public void SendToServer(HttpURLConnection connection, JSONObject user, FileReader file)
                                                            throws IOException{
         OutputStream out = connection.getOutputStream();
-        out.write(user.toString().getBytes());
+        if(user != null) out.write(user.toString().getBytes());
+        else out.write(file.toString().getBytes());
         out.flush();
         out.close();
     }
@@ -102,5 +106,52 @@ public class SetURL {
                 "  Email: " + user.getAccount_Email() +
                 "  Id: " + user.getAccount_ID() +
                 "  Deactivated: " + user.isAccount_deactivated());
+    }
+
+    public void SetHeadData(JSONObject obj, AccountData user, File upload){
+        File target = new File(System.getProperty("user.dir") +
+                                "\\AccountHead\\");
+
+        user.setAccount_HeadURL(obj.getString("cover_image_url"));
+
+        try {
+            InputStream in = new FileInputStream(upload);
+            OutputStream out = new FileOutputStream(target);
+
+            byte[] buffer = new byte[1024];
+            int lines;
+            while ((lines = in.read(buffer)) > 0){
+                out.write(buffer, 0, lines);
+            }
+            in.close();
+            out.close();
+        }
+        catch(FileNotFoundException ex){
+            System.out.println(ex.getMessage() + " in the specified directory.");
+            System.exit(0);
+        }
+        catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+
+        ImageIcon up = new ImageIcon(upload.getPath());
+        user.setAccount_Head(up);
+
+        System.out.println("UserData HeadURL: " + user.getAccount_HeadURL() +
+                            " Head: w: " + up.getIconHeight() +
+                            " h: " + up.getIconHeight());
+    }
+
+
+    public static String getExtension(File file)
+    {
+        int startIndex = file.getName().lastIndexOf(46) + 1;
+        int endIndex = file.getName().length();
+        return  file.getName().substring(startIndex, endIndex);
+    }
+
+    public static void main(String[] args){
+        File f = new File("MainScreen/head.jpg");
+        System.out.println(getExtension(f));
     }
 }

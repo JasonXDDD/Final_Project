@@ -35,7 +35,7 @@ public class sLogin {
             user.put("email", email);
             user.put("password", password);
 
-            urlMod.SendToServer(connection, user);
+            urlMod.SendToServer(connection, user, null);
 
             JSONObject obj = null;
             obj = urlMod.PrintInput(connection, obj);
@@ -69,11 +69,5 @@ public class sLogin {
     public int getRespondcode() {
         return respondcode;
     }
-    //    public static void main(String[] args) throws IOException{
-//        sGetToken sg = new sGetToken();
-//        Gobel gbl = new Gobel();
-//        ServerConnect.sLogin sl = new sLogin(gbl.getToken(), "JasonXDDD", "QQ");
-//        System.out.println("Token: " + gbl.getToken());
-//    }
 
 }

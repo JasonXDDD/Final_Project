@@ -10,6 +10,7 @@ import java.util.ArrayList;
  */
 public class AccountData {
     private ImageIcon Account_Head;
+    private String Account_HeadURL;
     private String Account_Name;
     private String Account_Email;
     private String Account_Password;
@@ -83,5 +84,13 @@ public class AccountData {
 
     public void setStoreSample(StoreData storeSample) {
         StoreSample = storeSample;
+    }
+
+    public String getAccount_HeadURL() {
+        return Account_HeadURL;
+    }
+
+    public void setAccount_HeadURL(String account_HeadURL) {
+        Account_HeadURL = account_HeadURL;
     }
 }

@@ -23,6 +23,8 @@ public class sEditAccount {
 
 
     public sEditAccount(String name, String password, int ID) throws IOException {
+        System.out.println("------Edit Account------");
+
         try {
             ADD_URL = new URL(urlMod.ChooseRequest(sEditAccount, ID));
             connection = (HttpURLConnection) ADD_URL.openConnection();
@@ -35,7 +37,7 @@ public class sEditAccount {
             user.put("username", name);
             user.put("password", password);
 
-            urlMod.SendToServer(connection, user);
+            urlMod.SendToServer(connection, user, null);
 
             JSONObject obj = new JSONObject();
             obj = urlMod.PrintInput(connection, obj);
@@ -45,6 +47,7 @@ public class sEditAccount {
                 urlMod.SetData(obj, MainTest.accountData);
             }
 
+            System.out.println();
             connection.disconnect();
         }
         catch (MalformedURLException e) {

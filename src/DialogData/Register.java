@@ -3,13 +3,16 @@ package DialogData;
 import MainScreen.MainFrame;
 import MainScreen.MainTest;
 import PublicClass.GBConstraint;
+import PublicClass.ImageProcess;
 import PublicClass.ScreenSize;
+import ServerConnect.Gobel;
 import ServerConnect.sRegister;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 
 
@@ -20,7 +23,7 @@ public class Register extends JDialog implements ActionListener{
     private ScreenSize scSize;
     private sRegister sr;
 
-
+    private Gobel gbl;
 
     private JLabel lbl;
     private JLabel Error;
@@ -30,33 +33,41 @@ public class Register extends JDialog implements ActionListener{
     private JButton create;
     private JButton log;
 
-    private JButton head;
+    private File file;
+
+    private ImageIcon head;
+    private ImageIcon Show;
+
+    private JButton headbtn;
 
     private GBConstraint gbc = new GBConstraint();
     private GridBagLayout gb = new GridBagLayout();
 
     private int[][] position = new int[][]{
-                       {3,1,1,3},
+                                  {4,1,1,3},
                        {3,2,1,1}, {4,2,1,2},
                        {3,3,1,1}, {4,3,1,2},
                        {3,4,1,1}, {4,4,1,2},
+                                  {4,5,1,2},
                                   {5,6,1,1},
-             {0,7,1,1},{1,2,3,1}
+            {1,7,1,1}, {1,1,5,2},
 
     };
 
     public Register(JFrame f, String str, boolean model){
         super(f, str, model);
 
+        gbl = new Gobel();
+
         System.out.println("-----Register-----");
 
-        gb.rowHeights = new int[]{30, 30, 30, 30, 30, 30, 30, 30};
-        gb.columnWidths = new int[]{50, 90, 30, 30, 30, 130, 50};
+        gb.rowHeights = new int[]{30, 30, 30, 30, 30, 60, 30, 30};
+        gb.columnWidths = new int[]{50, 60, 120, 30, 30, 130, 50};
         setLayout(gb);
         scSize = new ScreenSize();
 
 
-        for(int i = 0; i <= 9; i++){
+        for(int i = 0; i <= 10; i++){
             gbc.setValue(gbc, position[i][0], position[i][1],
                               position[i][2], position[i][3]);
 
@@ -89,21 +100,26 @@ public class Register extends JDialog implements ActionListener{
                     enter_passwd = new JPasswordField();
                     getContentPane().add(enter_passwd, gbc);
                     break;
-
                 case 7:
+                    lbl = new JLabel("Email為之後登入帳號，註冊後不可修改。");
+                    getContentPane().add(lbl, gbc);
+                    break;
+                case 8:
                     create = new JButton("Create");
                     getContentPane().add(create, gbc);
                     create.addActionListener(this);
                     break;
-                case 8:
+                case 9:
                     log = new JButton("Login");
                     getContentPane().add(log, gbc);
                     log.addActionListener(this);
                     break;
-                case 9:
-                    head = new JButton();
-                    getContentPane().add(head, gbc);
-                    head.addActionListener(this);
+                case 10:
+                    headbtn = new JButton();
+                    headbtn.setBorder(BorderFactory.createLineBorder(Color.black));
+                    headbtn.setBackground(Color.white);
+                    getContentPane().add(headbtn, gbc);
+                    headbtn.addActionListener(this);
                     break;
             }
         }
@@ -120,8 +136,10 @@ public class Register extends JDialog implements ActionListener{
         if(e.getSource() == create){
             try {
                 Error.setText("");
-                sr = new sRegister(enter_name.getText(), enter_email.getText(),
-                        new String(enter_passwd.getPassword()));
+                sr = new sRegister(gbl.getToken(), enter_name.getText(),
+                                    enter_email.getText(),
+                                    new String(enter_passwd.getPassword()),
+                                    file);
                 System.out.println( "On Dialog: Name: " + enter_name.getText()+
                                     "  email: " + enter_email.getText()+
                                     "  password: " + new String(enter_passwd.getPassword()));
@@ -148,9 +166,23 @@ public class Register extends JDialog implements ActionListener{
             catch (IOException I){}
         }
 
-        else if(e.getSource() == head){
+        else if(e.getSource() == headbtn){
+            String str = new String("");
             FileDialog fd = new FileDialog(this, "FileDialog", FileDialog.LOAD);
             fd.setVisible(true);
+
+            str = fd.getDirectory() + fd.getFile();
+
+            file = new File(str);
+            System.out.println("set head file: " + file.toString());
+            head = new ImageIcon(str);
+
+            Show = ImageProcess.scaleImage(head, 180);
+            Show = ImageProcess.cutImage(Show, 0,0,180,180);
+
+            headbtn.setIcon(Show);
+
         }
     }
+
 }

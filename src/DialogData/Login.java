@@ -92,7 +92,7 @@ public class Login extends JDialog implements ActionListener{
         setLocation(scSize.getWidth()/2 - 145,
                     scSize.getHeight()/2- 105);
         pack();
-        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 
     }
 

@@ -9,6 +9,7 @@ import ServerConnect.sLogin;
 import ServerConnect.sRegister;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -27,7 +28,7 @@ public class EditAccount extends BasicDialog implements ActionListener{
     private JLabel Error;
     private JTextField enter_name;
     private JPasswordField enter_passwd;
-    private JButton OK, cancel;
+    private JButton OK, cancel, headbtn;
 
 
     public EditAccount(JFrame f, String str, boolean model){
@@ -35,31 +36,39 @@ public class EditAccount extends BasicDialog implements ActionListener{
 
         scSize = new ScreenSize();
 
-        SetTheSize(new int[]{50, 30, 80, 80, 50},  //col width
-                new int[]{30, 35, 35, 35, 35, 35, 30});  //row height
+//        SetTheSize(new int[]{50, 30, 80, 80, 50},  //col width
+//                new int[]{30, 35, 35, 35, 35, 35, 30});  //row height
+        SetTheSize(new int[]{50, 60, 120, 30, 80, 80, 50},
+                new int[]{30, 30, 30, 30, 30, 60, 30, 30});
 
         Error = new JLabel("");
-        AddFiled(Error, new int[]{1,1,1,3});
+        AddFiled(Error, new int[]{4,1,1,3});
 
         lbl = new JLabel("Name: ");
-        AddFiled(lbl, new int[]{1,2,1,1});
+        AddFiled(lbl, new int[]{3,2,1,1});
 
         enter_name = new JTextField(MainTest.accountData.getAccount_Name());
-        AddFiled(enter_name, new int[]{2,2,1,2});
+        AddFiled(enter_name, new int[]{4,2,1,2});
 
         lbl = new JLabel("Password: ");
-        AddFiled(lbl, new int[]{1,3,1,1});
+        AddFiled(lbl, new int[]{3,3,1,1});
 
         enter_passwd = new JPasswordField(MainTest.accountData.getAccount_Password());
-        AddFiled(enter_passwd, new int[]{2,3,1,2});
+        AddFiled(enter_passwd, new int[]{4,3,1,2});
 
         OK = new JButton("OK");
         OK.addActionListener(this);
-        AddFiled(OK, new int[]{2,4,1,1});
+        AddFiled(OK, new int[]{5,6,1,1});
 
         cancel = new JButton("Cancel");
         cancel.addActionListener(this);
-        AddFiled(cancel, new int[]{3,4,1,1});
+        AddFiled(cancel, new int[]{4,6,1,1});
+
+        headbtn = new JButton();
+        headbtn.setBorder(BorderFactory.createLineBorder(Color.black));
+        headbtn.setBackground(Color.white);
+        headbtn.addActionListener(this);
+        AddFiled(headbtn, new int[]{1,1,5,2});
 
         pack();
         setLocation(scSize.getWidth()/2 - this.getWidth()/2,

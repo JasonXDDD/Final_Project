@@ -24,6 +24,9 @@ public class ifAccountTool extends JInternalFrame {
         setLayout(null);
         lp_layer = this.getLayeredPane();
 
+        head = ImageProcess.scaleImage(head, 230);
+        head = ImageProcess.cutImage(head, 0, 0, 230, 230);
+
         ifAT_iclblHead = new JLabel(head);
         ifAT_iclblHead.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         ifAT_iclblHead.setBounds(20, 20, 230, 230);
@@ -61,7 +64,4 @@ public class ifAccountTool extends JInternalFrame {
         return ifAT_lblName;
     }
 
-    public void setIfAT_lblName(JLabel ifAT_lblName) {
-        this.ifAT_lblName = ifAT_lblName;
-    }
 }

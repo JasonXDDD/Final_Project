@@ -1,10 +1,12 @@
 package MainScreen;
 
+import PublicClass.ImageProcess;
 import PublicClass.ScreenSize;
 import ServerConnect.sGetToken;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.ImageProducer;
 import java.io.IOException;
 
 /**
@@ -14,8 +16,7 @@ public class Loading extends JFrame {
     private ScreenSize scSize;
     private JLayeredPane lp_layer;
 
-    private Image fixSize;
-    private Image GetPic;
+
     private ImageIcon head = new ImageIcon(getClass().getResource("head.jpg"));
     private ImageIcon Show;
     private JLabel loading;
@@ -37,13 +38,9 @@ public class Loading extends JFrame {
         TXT.setFont(new Font("Arial", Font.BOLD, 72));
         lp_layer.setLayout(new BorderLayout());
         lp_layer.add(TXT, BorderLayout.SOUTH, new Integer(-300000));
-        //this.getContentPane().add(TXT, BorderLayout.SOUTH);
 
-        GetPic = head.getImage();
-        fixSize = GetPic.getScaledInstance
-                (SetPicWidth(head, 400), 400, Image.SCALE_SMOOTH);
-        Show = new ImageIcon(fixSize);
 
+        Show = ImageProcess.scaleImage(head, 400);
         loading = new JLabel(Show);
         this.getContentPane().add(loading, BorderLayout.CENTER);
 
@@ -56,18 +53,6 @@ public class Loading extends JFrame {
 
 
         System.out.println();
-    }
-
-    public int SetPicWidth(ImageIcon head, int y){
-        int width = head.getIconWidth();
-        int height = head.getIconHeight();
-        int x = width * y / height;
-
-        System.out.println("BookData Head: w: " + head.getIconWidth() +
-                " h: " + head.getIconHeight() +
-                " After w: " + x);
-
-        return x;
     }
 
     //    public static void main(String[] args) {
