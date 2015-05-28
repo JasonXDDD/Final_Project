@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="XDD">
+  <library name="json">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/XDD.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/json.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
