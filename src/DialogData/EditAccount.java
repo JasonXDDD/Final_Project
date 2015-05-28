@@ -98,6 +98,7 @@ public class EditAccount extends BasicDialog implements ActionListener{
                         "  UserID: " + MainTest.accountData.getAccount_ID() +
                         "  Head: " + MainTest.accountData.getAccount_Head().getDescription());
             } catch (IOException I) {
+                System.out.println("EditAccount actionPerformed IOException " + I.getMessage());
             }
 
 

@@ -2,55 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4242e0d-3995-4b0e-8d26-1803fe2dd526" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\.idea\libraries\XDD.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\.idea\libraries\examples.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\.idea\libraries\lib.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\NOTICE.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\README.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\RELEASE_NOTES.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\client\fluent\FluentAsync.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\client\fluent\FluentExecutor.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\client\fluent\FluentQuickStart.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\client\fluent\FluentRequests.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\client\fluent\FluentResponseHandling.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientAbortMethod.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientAuthentication.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientChunkEncodedPost.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientConfiguration.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientConnectionRelease.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientCustomContext.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientCustomPublicSuffixList.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientCustomSSL.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientEvictExpiredConnections.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientExecuteProxy.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientExecuteSOCKS.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientFormLogin.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientMultiThreadedExecution.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientPreemptiveBasicAuthentication.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientPreemptiveDigestAuthentication.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientProxyAuthentication.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientWithRequestFuture.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ClientWithResponseHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\ProxyTunnelDemo.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\QuickStart.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\client\win\ClientWinAuth.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\examples\org\apache\http\examples\entity\mime\ClientMultipartFormPost.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\tutorial\html\advanced.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\tutorial\html\authentication.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\tutorial\html\caching.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\tutorial\html\connmgmt.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\tutorial\html\css\hc-tutorial.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\tutorial\html\fluent.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\tutorial\html\fundamentals.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\tutorial\html\images\asf_logo_wide.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\tutorial\html\images\hc_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\tutorial\html\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\tutorial\html\preface.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\tutorial\html\statemgmt.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Documents\Final_Project\httpcomponents-client-4.4.1-bin (1)\httpcomponents-client-4.4.1\tutorial\pdf\httpclient-tutorial.pdf" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Final_Project.iml" afterPath="$PROJECT_DIR$/Final_Project.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountHead" afterPath="$PROJECT_DIR$/AccountHead" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DialogData/EditAccount.java" afterPath="$PROJECT_DIR$/src/DialogData/EditAccount.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ServerConnect/SetURL.java" afterPath="$PROJECT_DIR$/src/ServerConnect/SetURL.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ServerConnect/sEditAccount.java" afterPath="$PROJECT_DIR$/src/ServerConnect/sEditAccount.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ServerConnect/sLogin.java" afterPath="$PROJECT_DIR$/src/ServerConnect/sLogin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ServerConnect/sRegister.java" afterPath="$PROJECT_DIR$/src/ServerConnect/sRegister.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ServerConnect/sUploadHead.java" afterPath="$PROJECT_DIR$/src/ServerConnect/sUploadHead.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FinalProject.iws" />
@@ -73,12 +31,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Register.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DialogData/Register.java">
+      <file leaf-file-name="sUploadHead.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ServerConnect/sUploadHead.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7544582">
+              <caret line="68" column="34" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sEditAccount.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ServerConnect/sEditAccount.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="164" column="37" selection-start-line="164" selection-start-column="37" selection-end-line="164" selection-end-column="37" />
+              <caret line="47" column="89" selection-start-line="47" selection-start-column="89" selection-end-line="47" selection-end-column="89" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sLogin.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ServerConnect/sLogin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,24 +69,8 @@
         <entry file="file://$PROJECT_DIR$/src/DialogData/EditAccount.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
-              <folding>
-                <element signature="e#4303#4304#0" expanded="true" />
-                <element signature="e#4335#4336#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ifAccountTool.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MainScreen/ifAccountTool.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-              <folding>
-                <element signature="e#2105#2106#0" expanded="true" />
-                <element signature="e#2142#2143#0" expanded="true" />
-              </folding>
+              <caret line="94" column="28" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/src/PublicClass/ToolBarAction.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="69" selection-start-line="36" selection-start-column="69" selection-end-line="36" selection-end-column="69" />
+              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -123,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/src/ServerConnect/SetURL.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="183" column="5" selection-start-line="183" selection-start-column="5" selection-end-line="183" selection-end-column="5" />
+              <caret line="155" column="57" selection-start-line="155" selection-start-column="57" selection-end-line="155" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,22 +97,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScreenSize.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PublicClass/ScreenSize.java">
+      <file leaf-file-name="AccountData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DataClass/AccountData.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sEditAccount.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ServerConnect/sEditAccount.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
-              <folding />
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding>
+                <element signature="e#813#814#0" expanded="true" />
+                <element signature="e#849#850#0" expanded="true" />
+                <element signature="e#1088#1089#0" expanded="true" />
+                <element signature="e#1131#1132#0" expanded="true" />
+                <element signature="e#1198#1199#0" expanded="true" />
+                <element signature="e#1325#1326#0" expanded="true" />
+                <element signature="e#1360#1361#0" expanded="true" />
+                <element signature="e#1502#1503#0" expanded="true" />
+                <element signature="e#1541#1542#0" expanded="true" />
+                <element signature="e#2036#2037#0" expanded="true" />
+                <element signature="e#2074#2075#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -155,27 +123,7 @@
         <entry file="file://$PROJECT_DIR$/src/ServerConnect/sRegister.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sUploadHead.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ServerConnect/sUploadHead.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3371869">
-              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pnBookInfor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MainScreen/pnBookInfor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+              <caret line="42" column="59" selection-start-line="42" selection-start-column="59" selection-end-line="42" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -232,19 +180,19 @@
         <option value="$PROJECT_DIR$/src/PublicClass/GBConstraint.java" />
         <option value="$PROJECT_DIR$/src/ServerConnect/UploadFile.java" />
         <option value="$PROJECT_DIR$/src/DataClass/AccountData.java" />
-        <option value="$PROJECT_DIR$/src/ServerConnect/sLogin.java" />
         <option value="$PROJECT_DIR$/src/TEST/TEST.java" />
         <option value="$PROJECT_DIR$/src/MainScreen/spAccountData.java" />
         <option value="$PROJECT_DIR$/src/PublicClass/ImageProcess.java" />
         <option value="$PROJECT_DIR$/src/ServerConnect/sUploadFile.java" />
-        <option value="$PROJECT_DIR$/src/ServerConnect/sRegister.java" />
-        <option value="$PROJECT_DIR$/src/ServerConnect/SetURL.java" />
         <option value="$PROJECT_DIR$/src/MainScreen/ifAccountTool.java" />
         <option value="$PROJECT_DIR$/src/PublicClass/ToolBarAction.java" />
         <option value="$PROJECT_DIR$/src/DialogData/Register.java" />
+        <option value="$PROJECT_DIR$/src/ServerConnect/sLogin.java" />
+        <option value="$PROJECT_DIR$/src/ServerConnect/sRegister.java" />
         <option value="$PROJECT_DIR$/src/DialogData/EditAccount.java" />
-        <option value="$PROJECT_DIR$/src/ServerConnect/sUploadHead.java" />
         <option value="$PROJECT_DIR$/src/ServerConnect/sEditAccount.java" />
+        <option value="$PROJECT_DIR$/src/ServerConnect/sUploadHead.java" />
+        <option value="$PROJECT_DIR$/src/ServerConnect/SetURL.java" />
       </list>
     </option>
   </component>
@@ -280,9 +228,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -425,6 +370,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -752,11 +700,6 @@
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SliceManager">
-    <option name="analysisUIOptions">
-      <AnalysisUIOptions />
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -771,18 +714,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1272" y="-184" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27464116" sideWeight="0.4035181" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.4978678" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20572917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21055438" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -793,10 +736,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27560717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27490422" sideWeight="0.59648186" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13621964" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39176345" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22318007" sideWeight="0.48560768" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39175257" sideWeight="0.49583334" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -812,7 +755,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -821,30 +764,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ServerConnect/sUploadHead.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="75" selection-start-line="61" selection-start-column="75" selection-end-line="61" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainScreen/pnBookInfor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainScreen/ifAccountTool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding>
-            <element signature="e#2105#2106#0" expanded="true" />
-            <element signature="e#2142#2143#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -866,10 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#2105#2106#0" expanded="true" />
-            <element signature="e#2142#2143#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -891,10 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#2105#2106#0" expanded="true" />
-            <element signature="e#2142#2143#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -916,10 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#2105#2106#0" expanded="true" />
-            <element signature="e#2142#2143#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1022,16 +933,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainScreen/MainTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PublicClass/ToolBar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1095,27 +996,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataClass/AccountData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3929961">
-          <caret line="88" column="30" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DialogData/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ServerConnect/sLogin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1130,7 +1014,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1138,18 +1021,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="164" column="37" selection-start-line="164" selection-start-column="37" selection-end-line="164" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DialogData/EditAccount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
-          <folding>
-            <element signature="e#4303#4304#0" expanded="true" />
-            <element signature="e#4335#4336#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1157,26 +1028,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding>
-            <element signature="e#2105#2106#0" expanded="true" />
-            <element signature="e#2142#2143#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PublicClass/ToolBarAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="69" selection-start-line="36" selection-start-column="69" selection-end-line="36" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ServerConnect/sRegister.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1184,14 +1035,73 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainScreen/MainTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7204969">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PublicClass/ToolBarAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ServerConnect/sEditAccount.java">
+    <entry file="jar://$PROJECT_DIR$/lib/httpcomponents-client-4.4.1/httpclient-4.4.1.jar!/org/apache/http/impl/execchain/HttpResponseProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34797296">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/json.jar!/org/json/JSONObject.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25353926">
+          <caret line="218" column="0" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataClass/AccountData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#1088#1089#0" expanded="true" />
+            <element signature="e#1131#1132#0" expanded="true" />
+            <element signature="e#1198#1199#0" expanded="true" />
+            <element signature="e#1325#1326#0" expanded="true" />
+            <element signature="e#1360#1361#0" expanded="true" />
+            <element signature="e#1502#1503#0" expanded="true" />
+            <element signature="e#1541#1542#0" expanded="true" />
+            <element signature="e#2036#2037#0" expanded="true" />
+            <element signature="e#2074#2075#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ServerConnect/sRegister.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="59" selection-start-line="42" selection-start-column="59" selection-end-line="42" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DialogData/EditAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="28" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1199,18 +1109,38 @@
     <entry file="file://$PROJECT_DIR$/src/ServerConnect/SetURL.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="183" column="5" selection-start-line="183" selection-start-column="5" selection-end-line="183" selection-end-column="5" />
+          <caret line="155" column="57" selection-start-line="155" selection-start-column="57" selection-end-line="155" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ServerConnect/sLogin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ServerConnect/sEditAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="89" selection-start-line="47" selection-start-column="89" selection-end-line="47" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ServerConnect/sUploadHead.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3371869">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-          <folding />
+        <state vertical-scroll-proportion="0.7544582">
+          <caret line="68" column="34" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

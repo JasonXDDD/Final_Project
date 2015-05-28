@@ -25,9 +25,14 @@ public class sUploadHead {
     private URL ADD_URL;
     private SetURL urlMod = new SetURL();
     private int respondcode = 0;
+    private String head_image_url;
 
     private static final int sUploadHead = 5;
 
+
+    public String getHead_image_url() {
+        return head_image_url;
+    }
 
     public sUploadHead(String token, File uploadfile) throws IOException {
         System.out.println("--upload Head---");
@@ -58,6 +63,9 @@ public class sUploadHead {
                     System.out.println("Head upload: " + responseStr);
 
                     JSONObject obj = new JSONObject(responseStr);
+                    System.out.println("sUploadHead: Head-upload ResponseJSONObj HeadURL = " + obj.getString("head_image_url"));
+                    head_image_url = obj.getString("head_image_url");
+
                     urlMod.SetHeadData(obj, MainTest.accountData, uploadfile);
                     respondcode = response.getStatusLine().getStatusCode();
                 }

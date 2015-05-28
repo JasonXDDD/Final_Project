@@ -40,8 +40,7 @@ public class sRegister {
 
             urlMod.SendToServer(connection, user, null);
 
-            JSONObject obj = new JSONObject();
-            obj = urlMod.PrintInput(connection, obj);
+            JSONObject obj = urlMod.PrintInput(connection);
             respondcode = connection.getResponseCode();
 
             if(respondcode/100 == 2) {

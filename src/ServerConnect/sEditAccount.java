@@ -40,14 +40,17 @@ public class sEditAccount {
 
             urlMod.SendToServer(connection, user, null);
 
-            JSONObject obj = new JSONObject();
-            obj = urlMod.PrintInput(connection, obj);
+            JSONObject obj = urlMod.PrintInput(connection);
             respondcode = connection.getResponseCode();
 
             if(respondcode/100 == 2) {
                 suphead = new sUploadHead(token, uploadfile);
-                if(suphead.getRespondcode()/100 ==2)
+                System.out.println("sEditAccount uploadfile = " + uploadfile.toString());
+                if(suphead.getRespondcode()/100 ==2){
+                    obj.put("head_image_url", suphead.getHead_image_url());
                     urlMod.SetData(obj, MainTest.accountData);
+                    System.out.println("sEditAccount JSONObj headURL = " + obj.getString("head_image_url"));
+                }
             }
             System.out.println();
 

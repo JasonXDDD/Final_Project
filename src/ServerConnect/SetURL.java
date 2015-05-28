@@ -2,6 +2,7 @@ package ServerConnect;
 
 import DataClass.AccountData;
 import com.sun.prism.Image;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import javax.imageio.ImageIO;
@@ -58,43 +59,38 @@ public class SetURL {
     }
 
 
-    public JSONObject PrintInput(HttpURLConnection connection, JSONObject obj)
-                                                            throws IOException{
+    public JSONObject PrintInput(HttpURLConnection connection) throws IOException{
+        JSONObject obj;
+        StringBuffer sb = new StringBuffer("");
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(connection.getInputStream()));
         try {
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(connection.getInputStream()));
             String lines;
-            StringBuffer sb = new StringBuffer("");
             while ((lines = reader.readLine()) != null) {
                 lines = new String(lines.getBytes(), "utf-8");
                 sb.append(lines);
             }
 
-            System.out.println(sb);
+            System.out.println("SetURL PrintInput sb = "+sb);
             obj = new JSONObject(sb.toString());
             reader.close();
         }
         catch (IOException I){
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(connection.getErrorStream()));
-            String lines;
-            StringBuffer sb = new StringBuffer("");
-            while ((lines = reader.readLine()) != null) {
-                lines = new String(lines.getBytes(), "utf-8");
-                sb.append(lines);
-            }
+//            BufferedReader reader = new BufferedReader(
+//                    new InputStreamReader(connection.getErrorStream()));
+//            String lines;
+//            StringBuffer sb = new StringBuffer("");
+//            while ((lines = reader.readLine()) != null) {
+//                lines = new String(lines.getBytes(), "utf-8");
+//                sb.append(lines);
 
-
+            System.out.println("SetURL PrintInput IOException " + I.getMessage());
             System.out.println(sb);
             obj = new JSONObject(sb.toString());
             reader.close();
         }
-
         return obj;
     }
-
-
-
 
     public void SendToServer(HttpURLConnection connection, JSONObject user, FileReader file)
                                                            throws IOException{
@@ -110,12 +106,20 @@ public class SetURL {
 
 
     public void SetData(JSONObject obj, AccountData user){
-        user.setAccount_Name(obj.getString("username"));
-        user.setAccount_Password(obj.getString("password"));
-        user.setAccount_Email(obj.getString("email"));
-        user.setAccount_ID(obj.getInt("user_id"));
-        user.setAccount_deactivated(obj.getBoolean("deactivated"));
-        user.setAccount_HeadURL(obj.getString("head_image_url"));
+        try {
+            user.setAccount_Name(obj.getString("username"));
+            user.setAccount_Password(obj.getString("password"));
+            user.setAccount_Email(obj.getString("email"));
+            user.setAccount_ID(obj.getInt("user_id"));
+            user.setAccount_deactivated(obj.getBoolean("deactivated"));
+            user.setAccount_HeadURL(obj.getString("head_image_url"));
+            System.out.println("SetData: JSONObj getHeadURL = " + obj.getString("head_image_url"));
+            System.out.println("SetData: Account head_image_url = " + user.getAccount_HeadURL());
+        }
+        catch (JSONException ex)
+        {
+
+        }
 
         try {
             BufferedImage download = ImageIO.read(new URL(user.getAccount_HeadURL()));

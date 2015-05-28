@@ -37,8 +37,7 @@ public class sLogin {
 
             urlMod.SendToServer(connection, user, null);
 
-            JSONObject obj = null;
-            obj = urlMod.PrintInput(connection, obj);
+            JSONObject obj = urlMod.PrintInput(connection);
             respondcode = connection.getResponseCode();
 
             Answer = obj.getString("message");
