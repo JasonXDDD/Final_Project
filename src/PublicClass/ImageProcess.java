@@ -36,17 +36,17 @@ public class ImageProcess {
 
         if(head.getIconWidth() >= head.getIconHeight())
             fixSize = GetPic.getScaledInstance
-                    (SetPicWidth(head, i), i, Image.SCALE_SMOOTH);
+                    (SetPicLength(head, i), i, Image.SCALE_SMOOTH);
         else
             fixSize = GetPic.getScaledInstance
-                    (i, SetPicWidth(head, i), Image.SCALE_SMOOTH);
+                    (i, SetPicLength(head, i), Image.SCALE_SMOOTH);
 
         Show = new ImageIcon(fixSize);
 
         return Show;
     }
 
-    public static int SetPicWidth(ImageIcon head, int y){
+    public static int SetPicLength(ImageIcon head, int y){
         int width = head.getIconWidth();
         int height = head.getIconHeight();
         int x;

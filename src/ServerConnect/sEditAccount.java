@@ -1,9 +1,9 @@
 package ServerConnect;
 
-import DataClass.AccountData;
 import MainScreen.MainTest;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
@@ -21,8 +21,9 @@ public class sEditAccount {
     private static final int sEditAccount = 3;
     private HttpURLConnection connection = null;
 
+    private sUploadHead suphead;
 
-    public sEditAccount(String name, String password, int ID) throws IOException {
+    public sEditAccount(String token, String name, String password, int ID, File uploadfile) throws IOException {
         System.out.println("------Edit Account------");
 
         try {
@@ -44,10 +45,12 @@ public class sEditAccount {
             respondcode = connection.getResponseCode();
 
             if(respondcode/100 == 2) {
-                urlMod.SetData(obj, MainTest.accountData);
+                suphead = new sUploadHead(token, uploadfile);
+                if(suphead.getRespondcode()/100 ==2)
+                    urlMod.SetData(obj, MainTest.accountData);
             }
-
             System.out.println();
+
             connection.disconnect();
         }
         catch (MalformedURLException e) {

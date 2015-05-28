@@ -2,6 +2,7 @@ package DialogData;
 
 import MainScreen.MainFrame;
 import MainScreen.MainTest;
+import PublicClass.ImageProcess;
 import PublicClass.ScreenSize;
 import ServerConnect.Gobel;
 import ServerConnect.sEditAccount;
@@ -12,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -22,7 +24,8 @@ public class EditAccount extends BasicDialog implements ActionListener{
     private sEditAccount se;
     private Gobel gbl;
 
-    private MainFrame frame;
+    private File file;
+    private ImageIcon Show, head;
 
     private JLabel lbl;
     private JLabel Error;
@@ -30,6 +33,7 @@ public class EditAccount extends BasicDialog implements ActionListener{
     private JPasswordField enter_passwd;
     private JButton OK, cancel, headbtn;
 
+    private boolean IsSetData = false;
 
     public EditAccount(JFrame f, String str, boolean model){
         super(f, str, model);
@@ -64,7 +68,11 @@ public class EditAccount extends BasicDialog implements ActionListener{
         cancel.addActionListener(this);
         AddFiled(cancel, new int[]{4,6,1,1});
 
-        headbtn = new JButton();
+        head = MainTest.accountData.getAccount_Head();
+        Show = ImageProcess.scaleImage(head, 180);
+        Show = ImageProcess.cutImage(Show, 0,0,180,180);
+
+        headbtn = new JButton(Show);
         headbtn.setBorder(BorderFactory.createLineBorder(Color.black));
         headbtn.setBackground(Color.white);
         headbtn.addActionListener(this);
@@ -77,23 +85,54 @@ public class EditAccount extends BasicDialog implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        try {
-            Error.setText("");
-            se = new sEditAccount(enter_name.getText(),
-                    new String(enter_passwd.getPassword()),
-                    MainTest.accountData.getAccount_ID());
-            System.out.println( "On Dialog: Name: " + enter_name.getText()+
-                    "  password: " + new String(enter_passwd.getPassword()) +
-                    "  UserID: " + MainTest.accountData.getAccount_ID());
+        if(e.getSource() == OK) {
+            try {
+                Error.setText("");
+                se = new sEditAccount(gbl.getToken(),
+                        enter_name.getText(),
+                        new String(enter_passwd.getPassword()),
+                        MainTest.accountData.getAccount_ID(),
+                        file);
+                System.out.println("On Dialog: Name: " + enter_name.getText() +
+                        "  password: " + new String(enter_passwd.getPassword()) +
+                        "  UserID: " + MainTest.accountData.getAccount_ID() +
+                        "  Head: " + MainTest.accountData.getAccount_Head().getDescription());
+            } catch (IOException I) {
+            }
+
+
+            if (se.getRespondcode() / 100 == 2) {
+                dispose();
+                System.out.println();
+                IsSetData = true;
+            } else
+                Error.setText("帳號已存在!");
         }
-        catch (IOException I){}
 
-
-        if(se.getRespondcode()/100 == 2){
+        else if(e.getSource() == cancel){
             dispose();
             System.out.println();
         }
-        else
-            Error.setText("帳號已存在!");
+
+        else if(e.getSource() == headbtn){
+            String str = new String("");
+            FileDialog fd = new FileDialog(this, "FileDialog", FileDialog.LOAD);
+            fd.setVisible(true);
+
+            str = fd.getDirectory() + fd.getFile();
+
+            file = new File(str);
+            System.out.println("set head file: " + file.toString());
+            head = new ImageIcon(str);
+
+            Show = ImageProcess.scaleImage(head, 180);
+            Show = ImageProcess.cutImage(Show, 0,0,180,180);
+
+            headbtn.setIcon(Show);
+        }
+    }
+
+    public boolean isSetData() {
+        return IsSetData;
     }
 }

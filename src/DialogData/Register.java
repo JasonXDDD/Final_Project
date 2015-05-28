@@ -142,7 +142,8 @@ public class Register extends JDialog implements ActionListener{
                                     file);
                 System.out.println( "On Dialog: Name: " + enter_name.getText()+
                                     "  email: " + enter_email.getText()+
-                                    "  password: " + new String(enter_passwd.getPassword()));
+                                    "  password: " + new String(enter_passwd.getPassword()) +
+                                    "  Head: " + file.getPath());
             }
             catch (IOException I){}
 
@@ -181,7 +182,6 @@ public class Register extends JDialog implements ActionListener{
             Show = ImageProcess.cutImage(Show, 0,0,180,180);
 
             headbtn.setIcon(Show);
-
         }
     }
 

@@ -1,6 +1,5 @@
 package ServerConnect;
 
-import DataClass.AccountData;
 import MainScreen.MainTest;
 import org.json.JSONObject;
 
@@ -22,7 +21,7 @@ public class sRegister {
     private static final int sRegist = 1;
     private HttpURLConnection connection = null;
 
-    private sUploadFile suf;
+    private sUploadHead suphead;
 
     public sRegister(String token, String name, String email, String password, File uploadfile) throws IOException{
         try {
@@ -46,7 +45,7 @@ public class sRegister {
             respondcode = connection.getResponseCode();
 
             if(respondcode/100 == 2) {
-                suf = new sUploadFile(token, uploadfile);
+                suphead = new sUploadHead(token, uploadfile);
                 urlMod.SetData(obj, MainTest.accountData);
             }
 
