@@ -16,6 +16,7 @@ public class Loading extends JFrame {
     private ScreenSize scSize;
     private JLayeredPane lp_layer;
 
+    private String string;
 
     private ImageIcon head = new ImageIcon(getClass().getResource("head.jpg"));
     private ImageIcon Show;
@@ -30,7 +31,6 @@ public class Loading extends JFrame {
         scSize = new ScreenSize();
         lp_layer = this.getLayeredPane();
 
-        sGetToken sg = new sGetToken();
 
         TXT = new JLabel("Loading", JLabel.CENTER);
         TXT.setForeground(Color.BLUE);
@@ -51,6 +51,19 @@ public class Loading extends JFrame {
         this.setLocation(scSize.getWidth()/2 - this.getWidth()/2,
                         scSize.getHeight()/2 - this.getHeight()/2);
 
+
+        try {
+            setVisible(true);
+            for(int i = 1; i <= 7; i++){
+                Thread.sleep(500);
+                string = new String(TXT.getText() + ".");
+                TXT.setText(string);
+            }
+            dispose();
+        }
+        catch (InterruptedException e){}
+
+        sGetToken sg = new sGetToken();
 
         System.out.println();
     }

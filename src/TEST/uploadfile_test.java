@@ -16,7 +16,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
-public class Main {
+public class uploadfile_test {
     public static void main(String[] args) throws Exception
     {
 //        if (args.length != 1)  {

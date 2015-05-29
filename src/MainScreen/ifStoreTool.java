@@ -38,8 +38,8 @@ public class ifStoreTool extends JInternalFrame {
         getContentPane().add(sp_scroll, BorderLayout.CENTER);
 
         ifST_toolbar = new ToolBar();
-        ifST_toolbar.AddTool("Add", null);
-        ifST_toolbar.AddTool("Edit", null);
+        ifST_toolbar.AddTool("sAdd", null);
+        ifST_toolbar.AddTool("sEdit", null);
         ifST_toolbar.AddTool("Delete", null);
         lp_layer.setLayout(new BorderLayout());
 //        lp_layer.add(ifST_toolbar, BorderLayout.SOUTH, new Integer(8550));

@@ -1,6 +1,8 @@
 package PublicClass;
 
+import DialogData.AddStore;
 import DialogData.EditAccount;
+import DialogData.EditStore;
 import MainScreen.MainFrame;
 import MainScreen.MainTest;
 
@@ -22,10 +24,10 @@ public class ToolBarAction extends JButton implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand() == "aEdit"){
-            EditAccount editAccount = new EditAccount(null, "EditAccount", true);
-            editAccount.setVisible(true);
+            EditAccount aEdit = new EditAccount(null, "EditAccount", true);
+            aEdit.setVisible(true);
 
-            if(editAccount.isSetData() == true) {
+            if(aEdit.isSetData() == true) {
                 MainTest.testFrame.getMF_spAccountData().getIfAT().getIfAT_lblName().
                         setText(MainTest.accountData.getAccount_Name());
 
@@ -36,13 +38,18 @@ public class ToolBarAction extends JButton implements ActionListener{
                 Show = ImageProcess.cutImage(Show, 0, 0, 230, 230);
                 MainTest.testFrame.getMF_spAccountData().getIfAT().getIfAT_iclblHead().
                         setIcon(Show);
-
-                JFrame f = new JFrame();
-                f.add(new JLabel(Show), BorderLayout.CENTER);
-                f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                f.setVisible(true);
-                f.pack();
             }
+        }
+
+
+        else if(e.getActionCommand() == "sAdd"){
+            AddStore sAdd = new AddStore(null, "StoreAdd", true);
+            sAdd.setVisible(true);
+        }
+
+        else if(e.getActionCommand() == "sEdit"){
+            EditStore sEdit = new EditStore(null, "StoreEdit", true);
+            sEdit.setVisible(true);
         }
     }
 

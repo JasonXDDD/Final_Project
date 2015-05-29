@@ -61,10 +61,11 @@ public class SetURL {
 
     public JSONObject PrintInput(HttpURLConnection connection) throws IOException{
         JSONObject obj;
-        StringBuffer sb = new StringBuffer("");
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(connection.getInputStream()));
+
         try {
+            StringBuffer sb = new StringBuffer("");
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(connection.getInputStream()));
             String lines;
             while ((lines = reader.readLine()) != null) {
                 lines = new String(lines.getBytes(), "utf-8");
@@ -76,14 +77,14 @@ public class SetURL {
             reader.close();
         }
         catch (IOException I){
-//            BufferedReader reader = new BufferedReader(
-//                    new InputStreamReader(connection.getErrorStream()));
-//            String lines;
-//            StringBuffer sb = new StringBuffer("");
-//            while ((lines = reader.readLine()) != null) {
-//                lines = new String(lines.getBytes(), "utf-8");
-//                sb.append(lines);
-
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(connection.getErrorStream()));
+            String lines;
+            StringBuffer sb = new StringBuffer("");
+            while ((lines = reader.readLine()) != null) {
+                lines = new String(lines.getBytes(), "utf-8");
+                sb.append(lines);
+            }
             System.out.println("SetURL PrintInput IOException " + I.getMessage());
             System.out.println(sb);
             obj = new JSONObject(sb.toString());
@@ -147,30 +148,30 @@ public class SetURL {
 
 
     public void SetHeadData(JSONObject obj, AccountData user, File upload){
-        File target = new File(System.getProperty("user.dir") +
-                                "\\AccountHead\\");
-
-        user.setAccount_HeadURL(obj.getString("head_image_url"));
-
-        try {
-            InputStream in = new FileInputStream(upload);
-            OutputStream out = new FileOutputStream(target);
-
-            byte[] buffer = new byte[1024];
-            int lines;
-            while ((lines = in.read(buffer)) > 0){
-                out.write(buffer, 0, lines);
-            }
-            in.close();
-            out.close();
-        }
-        catch(FileNotFoundException ex){
-            System.out.println(ex.getMessage() + " in the specified directory.");
-            System.exit(0);
-        }
-        catch(IOException e){
-            System.out.println(e.getMessage());
-        }
+//        File target = new File(System.getProperty("user.dir") +
+//                                "\\AccountHead\\");
+//
+//        user.setAccount_HeadURL(obj.getString("head_image_url"));
+//
+//        try {
+//            InputStream in = new FileInputStream(upload);
+//            OutputStream out = new FileOutputStream(target);
+//
+//            byte[] buffer = new byte[1024];
+//            int lines;
+//            while ((lines = in.read(buffer)) > 0){
+//                out.write(buffer, 0, lines);
+//            }
+//            in.close();
+//            out.close();
+//        }
+//        catch(FileNotFoundException ex){
+//            System.out.println(ex.getMessage() + " in the specified directory.");
+//            System.exit(0);
+//        }
+//        catch(IOException e){
+//            System.out.println(e.getMessage());
+//        }
 
         ImageIcon up = new ImageIcon(upload.getPath());
         user.setAccount_Head(up);
