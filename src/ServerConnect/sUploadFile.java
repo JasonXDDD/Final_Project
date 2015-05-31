@@ -30,6 +30,8 @@ public class sUploadFile {
 
     public sUploadFile(String token, File uploadfile, int ID) throws IOException {
         System.out.println("--upload Book Head---");
+        if (uploadfile == null)
+            return;
 
         try {
             CloseableHttpClient client = HttpClients.createDefault();

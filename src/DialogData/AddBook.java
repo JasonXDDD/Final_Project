@@ -37,7 +37,7 @@ public class AddBook extends BasicDialog implements ActionListener{
     private JTextField enter_Price;
     private JTextField enter_Tag;
 
-    private File file;
+    private File file = null;
     private sAddBook sab;
 
     public AddBook(JFrame f, String str, boolean model){
@@ -50,8 +50,6 @@ public class AddBook extends BasicDialog implements ActionListener{
 
         head = new ImageIcon(getClass().getResource("head.jpg"));
         Show = ImageProcess.scaleImage(head, 210);
-        System.out.println("pic str: " + head.toString());
-        file = new File(head.toString());
 
         headbtn = new JButton(Show);
         headbtn.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -134,8 +132,9 @@ public class AddBook extends BasicDialog implements ActionListener{
                         "  Publisher: " + enter_Publisher.getText() +
                         "  PubDate: " + enter_PubDate.getText() +
                         "  Price: " + enter_Price.getText() +
-                        "  Tags: " + enter_Tag.getText() +
-                        "  Head: " + file.getPath());
+                        "  Tags: " + enter_Tag.getText());
+                if(file != null)
+                    System.out.println("  File: " + file.toString());
 
             }
             catch (IOException I){}

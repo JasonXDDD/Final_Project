@@ -53,10 +53,9 @@ public class sAddBook {
                 JSONObject obj = urlMod.PrintInput(connection);
                 upfile = new sUploadFile(token, upload, obj.getInt("book_id"));
                 obj.put("cover_image_url", upfile.getCover_image_url());
-
                 JSONArray objlist = new JSONArray();
                 objlist.put(obj);
-                urlMod.SetBookData(objlist, 0);
+                urlMod.SetBookData(objlist, upload, 0);
             }
 
             System.out.println();

@@ -54,9 +54,13 @@ public class BookPanel extends JPanel{
     }
 
     public void AddBook(BookData bookData){
-        System.out.println("AddBook: " + bookData.getBk_cover().toString());
+        if(bookData.getBk_cover() == null)
+            bookData.setBk_cover(new ImageIcon(getClass().getResource("bookhead.jpg")));
+        else
+            System.out.println("AddBook: " + bookData.getBk_cover().toString());
         bookNode = new BookNode(bookData.getBk_cover(), bookData.getBk_Name());
         pnCeter.add(bookNode);
+
     }
 
     public JPanel getPnCeter() {

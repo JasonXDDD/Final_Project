@@ -19,6 +19,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.Buffer;
+import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
@@ -298,7 +299,7 @@ public class SetURL {
         }
     }
 
-    public void SetBookData(JSONArray objlist, int ID){
+    public void SetBookData(JSONArray objlist, File upload, int ID){
         System.out.println(objlist.toString());
         for(int i = 0; i < objlist.length(); i++) {
             MainTest.bookData = new BookData();
@@ -313,23 +314,23 @@ public class SetURL {
             JSONArray tags = objlist.getJSONObject(i).getJSONArray("tags");
             MainTest.bookData.setBk_Tag(tags.toString());
             MainTest.bookData.setBk_Delete(objlist.getJSONObject(i).getBoolean("deleted"));
-            MainTest.bookData.setBk_cover_URL(objlist.getJSONObject(i).getString("cover_image_url"));
-            System.out.println("SetData: JSONObj getCoverURL = " + objlist.getJSONObject(i).getString("cover_image_url"));
-            System.out.println("SetData: Book cover_image_url = " + MainTest.bookData.getBk_cover_URL());
+
+            if(upload != null) {
+                MainTest.bookData.setBk_cover_URL(objlist.getJSONObject(i).getString("cover_image_url"));
+                System.out.println("SetData: JSONObj getCoverURL = " + objlist.getJSONObject(i).getString("cover_image_url"));
+                System.out.println("SetData: Book cover_image_url = " + MainTest.bookData.getBk_cover_URL());
 
 
-            try {
-                BufferedImage download = ImageIO.read(new URL(MainTest.bookData.getBk_cover_URL()));
-                ImageIcon head = new ImageIcon(download);
-                MainTest.bookData.setBk_cover(head);
+                try {
+                    BufferedImage download = ImageIO.read(new URL(MainTest.bookData.getBk_cover_URL()));
+                    ImageIcon head = new ImageIcon(download);
+                    MainTest.bookData.setBk_cover(head);
+                } catch (MalformedURLException e) {
+                    System.out.println("URLException: " + e.getMessage());
+                } catch (IOException e) {
+                    System.out.println("IOException: " + e.getMessage());
+                }
             }
-            catch (MalformedURLException e){
-                System.out.println("URLException: " + e.getMessage());
-            }
-            catch (IOException e){
-                System.out.println("IOException: " + e.getMessage());
-            }
-
 
             if (ID == 0) {
                 MainTest.bkList.add(MainTest.bookData);
@@ -343,8 +344,6 @@ public class SetURL {
                 }
             }
         }
-
-
 
         for(BookData a : MainTest.bkList) {
             System.out.println("store name: " + a.getBk_Name() +
