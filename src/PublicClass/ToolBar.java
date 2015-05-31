@@ -30,6 +30,7 @@ public class ToolBar extends JToolBar {
         Tools.add(btnTool);
         numTool++;
         add(btnTool);
+
     }
 
 }

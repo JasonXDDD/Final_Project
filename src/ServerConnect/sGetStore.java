@@ -1,6 +1,6 @@
 package ServerConnect;
 
-import MainScreen.MainTest;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -10,44 +10,36 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Created by JASON_ on 2015/5/26.
+ * Created by JASON_ on 2015/5/31.
  */
-public class sLogin {
+public class sGetStore {
     private URL ADD_URL;
     private SetURL urlMod = new SetURL();
-    private String Answer;
     private int respondcode = 0;
 
-    private static final int sLogin = 2;
+    private static final int sGetStore = 6;
     private HttpURLConnection connection = null;
 
-    public sLogin(String token, String email, String password) throws IOException {
+    public sGetStore(String token) throws IOException {
+        System.out.println("------Get Store------");
+
         try {
-            ADD_URL = new URL(urlMod.ChooseRequest(sLogin, 0));
+            ADD_URL = new URL(urlMod.ChooseRequest(sGetStore, 0));
             connection = (HttpURLConnection) ADD_URL.openConnection();
 
-            connection = urlMod.Astribute(connection, "POST");
+            connection = urlMod.Astribute(connection, "GET");
 
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestProperty("token", token);
 
-            JSONObject user = new JSONObject();
-            user.put("email", email);
-            user.put("password", password);
-
-            urlMod.SendToServer(connection, user, null);
-
             respondcode = connection.getResponseCode();
 
             if(respondcode/100 == 2) {
-                JSONObject obj = urlMod.PrintInput(connection);
-                Answer = obj.getString("message");
-                System.out.println("Answer: " + Answer + " RespondCode: " + respondcode);
-                urlMod.SetAccountData(obj, MainTest.accountData);
-
-                sGetStore sg = new sGetStore(token);
+                JSONArray objlist = urlMod.PrintInputArray(connection);
+                urlMod.SetStoreData(objlist, 0);
             }
 
+            System.out.println();
             connection.disconnect();
         }
         catch (MalformedURLException e) {
@@ -62,12 +54,7 @@ public class sLogin {
         }
     }
 
-    public String getAnswer() {
-        return Answer;
-    }
-
     public int getRespondcode() {
         return respondcode;
     }
-
 }

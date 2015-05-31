@@ -23,7 +23,7 @@ public class spAccountData extends JSplitPane {
 
         add(ifAT);
 
-        ifST_strBookName = new String[]{};
+        ifST_strBookName = new String[100];
         for(int i = 0; i < MainTest.stList.size(); i++) {
             ifST_strBookName[i] = MainTest.stList.get(i).getStore_Name();
         }

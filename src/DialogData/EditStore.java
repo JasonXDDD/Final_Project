@@ -54,7 +54,7 @@ public class EditStore extends BasicDialog implements ActionListener{
         cancel.addActionListener(this);
         AddFiled(cancel, new int[]{2, 3, 1, 1});
 
-        OK = new JButton("Create");
+        OK = new JButton("OK");
         OK.addActionListener(this);
         AddFiled(OK, new int[]{3, 3, 1, 1});
 

@@ -60,6 +60,8 @@ public class ToolBarAction extends JButton implements ActionListener{
         }
 
         else if(e.getActionCommand() == "sEdit"){
+            if(MainTest.testFrame.getMF_spAccountData().getIfST()
+                    .getIfST_lsBookStore().isSelectionEmpty() == true) return;
             EditStore sEdit = new EditStore(null, "StoreEdit", true);
             sEdit.setVisible(true);
 

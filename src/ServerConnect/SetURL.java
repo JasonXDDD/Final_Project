@@ -34,6 +34,7 @@ public class SetURL {
     private static final int sUploadHead = 5;
     private static final int sAddStore = 6;
     private static final int sEditStore = 7;
+    private static final int sGetStore = 6;
 
     public SetURL(){ }
 
@@ -55,12 +56,13 @@ public class SetURL {
             case sUploadHead:
                 ADD_URL = new String("http://163.13.128.116:5000/api/upload/user_head_image");
                 break;
-            case sAddStore:
+            case sAddStore | sGetStore:
                 ADD_URL = new String("http://163.13.128.116:5000/api/category");
                 break;
             case sEditStore:
                 ADD_URL = new String("http://163.13.128.116:5000/api/category/" + ID);
                 break;
+
         }
         return ADD_URL;
     }
@@ -237,9 +239,9 @@ public class SetURL {
 
 
     public void SetStoreData(JSONArray objlist, int ID){
-        MainTest.storeData = new StoreData();
+        for(int i = 0; i < objlist.length(); i++) {
+            MainTest.storeData = new StoreData();
 
-        for(int i = 0; i < objlist.length(); i++){
             MainTest.storeData.setStore_ID(objlist.getJSONObject(i).getInt("category_id"));
             MainTest.storeData.setStore_Name(objlist.getJSONObject(i).getString("category_name"));
             MainTest.storeData.setUser_ID(objlist.getJSONObject(i).getInt("user_id"));
@@ -248,26 +250,27 @@ public class SetURL {
 
 
             ArrayList<Integer> booklist = new ArrayList<Integer>();
-            for(int j = 0; j < books.length(); j++){
+            for (int j = 0; j < books.length(); j++) {
                 MainTest.storeData.setBKID(books.getInt(j));
                 booklist.add(MainTest.storeData.getBKID());
             }
             MainTest.storeData.setBooks_ID(booklist);
-        }
 
-        if(ID == 0) {
-            MainTest.stList.add(MainTest.storeData);
-        }
-        else{
-            for(StoreData i : MainTest.stList){
-                if(i.getStore_ID() == ID){
-                    i = MainTest.storeData;
-                    System.out.println("Edit on SetStoreData: ID: " + i.getStore_ID() +
-                                        "  Name: " + i.getStore_Name());
-                    break;
+
+            if (ID == 0) {
+                MainTest.stList.add(MainTest.storeData);
+            } else {
+                for (StoreData a : MainTest.stList) {
+                    if (a.getStore_ID() == ID) {
+                        a.setStore_Name(MainTest.storeData.getStore_Name());
+                        System.out.println("Edit on SetStoreData: ID: " + a.getStore_ID() +
+                                "  Name: " + a.getStore_Name());
+                        break;
+                    }
                 }
             }
         }
+
 
         for(StoreData a : MainTest.stList) {
             System.out.println("store name: " + a.getStore_Name() +
@@ -280,7 +283,7 @@ public class SetURL {
                  System.out.print(b + " ");
             }
 
-            System.out.println("\n");
+            System.out.println("");
         }
     }
 
