@@ -70,7 +70,7 @@ public class BookPanel extends JPanel{
         bookData.setBk_ISBN("3212310012303");
         bookData.setBk_Author("密卡登");
         bookData.setBk_Publisher("便型精肛");
-        bookData.setBk_Date("2099/12/31");
+        bookData.setBk_PubDate("2099/12/31");
         bookData.setBk_Price("300");
         BDatas.add(bookData);
 

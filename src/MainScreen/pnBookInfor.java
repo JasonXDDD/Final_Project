@@ -112,7 +112,7 @@ public class pnBookInfor extends JPanel {
                     add(bk_Publisher,gbc);
                     break;
                 case 9:
-                    bk_Date.setText(book.getBk_Date());
+                    bk_Date.setText(book.getBk_PubDate());
                     add(bk_Date,gbc);
                     break;
                 case 11:
@@ -126,7 +126,7 @@ public class pnBookInfor extends JPanel {
                     add(bk_head,gbc);
                     break;
                 case 13:
-                    bk_node.setText("" + book.getBk_Node());
+                    bk_node.setText("" + book.getBk_ID());
                     add(bk_node,gbc);
                     break;
             }

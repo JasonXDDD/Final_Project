@@ -7,11 +7,29 @@ import java.util.ArrayList;
  */
 public class StoreData {
     private String Store_Name;
+    private Integer Store_ID;
     private Integer User_ID;
     private ArrayList<Integer> Books_ID = new ArrayList<Integer>();
     private Integer BKID;
+    private boolean deleted;
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
 
     public StoreData(){
+    }
+
+    public Integer getStore_ID() {
+        return Store_ID;
+    }
+
+    public void setStore_ID(Integer store_ID) {
+        Store_ID = store_ID;
     }
 
     public Integer getBKID() {

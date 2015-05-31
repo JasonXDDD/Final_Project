@@ -1,9 +1,14 @@
 package ServerConnect;
 
 import DataClass.AccountData;
+import DataClass.BookData;
+import DataClass.StoreData;
+import MainScreen.MainTest;
 import com.sun.prism.Image;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import sun.nio.cs.ext.ISCII91;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -14,6 +19,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.Buffer;
+import java.util.ArrayList;
 import java.util.stream.Stream;
 
 /**
@@ -26,22 +32,31 @@ public class SetURL {
     private static final int sEditAccount = 3;
     private static final int sUploadFile = 4;
     private static final int sUploadHead = 5;
+    private static final int sAddStore = 6;
 
     public SetURL(){ }
 
 
     public String ChooseRequest(int type, int ID){
-        switch(type){
+        switch(type) {
             case sRegist:
-                ADD_URL = new String("http://163.13.128.116:5000/api/user"); break;
+                ADD_URL = new String("http://163.13.128.116:5000/api/user");
+                break;
             case sLogin:
-                ADD_URL = new String("http://163.13.128.116:5000/api/user/login"); break;
+                ADD_URL = new String("http://163.13.128.116:5000/api/user/login");
+                break;
             case sEditAccount:
-                ADD_URL = new String("http://163.13.128.116:5000/api/user/" + ID); break;
+                ADD_URL = new String("http://163.13.128.116:5000/api/user/" + ID);
+                break;
             case sUploadFile:
-                ADD_URL = new String("http://163.13.128.116:5000/api/upload"); break;
+                ADD_URL = new String("http://163.13.128.116:5000/api/upload");
+                break;
             case sUploadHead:
-                ADD_URL = new String("http://163.13.128.116:5000/api/upload/user_head_image"); break;
+                ADD_URL = new String("http://163.13.128.116:5000/api/upload/user_head_image");
+                break;
+            case sAddStore:
+                ADD_URL = new String("http://163.13.128.116:5000/api/category");
+                break;
         }
         return ADD_URL;
     }
@@ -56,6 +71,42 @@ public class SetURL {
         connection.setInstanceFollowRedirects(true);
 
         return connection;
+    }
+
+    public JSONArray PrintInputArray(HttpURLConnection connection) throws IOException{
+        JSONArray objlist;
+        JSONObject obj;
+
+        try {
+            StringBuffer sb = new StringBuffer("");
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(connection.getInputStream()));
+            String lines;
+            while ((lines = reader.readLine()) != null) {
+                lines = new String(lines.getBytes(), "utf-8");
+                sb.append(lines);
+            }
+
+            System.out.println("SetURL PrintInput sb = "+sb);
+
+            objlist = new JSONArray(sb.toString());
+            reader.close();
+        }
+        catch (IOException I){
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(connection.getErrorStream()));
+            String lines;
+            StringBuffer sb = new StringBuffer("");
+            while ((lines = reader.readLine()) != null) {
+                lines = new String(lines.getBytes(), "utf-8");
+                sb.append(lines);
+            }
+            System.out.println("SetURL PrintInput IOException " + I.getMessage());
+            System.out.println(sb);
+            objlist = new JSONArray(sb.toString());
+            reader.close();
+        }
+        return objlist;
     }
 
 
@@ -106,7 +157,7 @@ public class SetURL {
 
 
 
-    public void SetData(JSONObject obj, AccountData user){
+    public void SetAccountData(JSONObject obj, AccountData user){
         try {
             user.setAccount_Name(obj.getString("username"));
             user.setAccount_Password(obj.getString("password"));
@@ -172,7 +223,6 @@ public class SetURL {
 //        catch(IOException e){
 //            System.out.println(e.getMessage());
 //        }
-
         ImageIcon up = new ImageIcon(upload.getPath());
         user.setAccount_Head(up);
 
@@ -183,6 +233,39 @@ public class SetURL {
     }
 
 
+    public void SetStoreData(JSONArray objlist){
+        for(int i = 0; i < objlist.length(); i++){
+            MainTest.storeData.setStore_ID(objlist.getJSONObject(i).getInt("category_id"));
+            MainTest.storeData.setStore_Name(objlist.getJSONObject(i).getString("category_name"));
+            MainTest.storeData.setUser_ID(objlist.getJSONObject(i).getInt("user_id"));
+            MainTest.storeData.setDeleted(objlist.getJSONObject(i).getBoolean("deleted"));
+            JSONArray books = objlist.getJSONObject(i).getJSONArray("book_list");
+
+
+            ArrayList<Integer> booklist = new ArrayList<Integer>();
+            for(int j = 0; j < books.length(); j++){
+                MainTest.storeData.setBKID(books.getInt(j));
+                booklist.add(MainTest.storeData.getBKID());
+            }
+            MainTest.storeData.setBooks_ID(booklist);
+        }
+
+        MainTest.stList.add(MainTest.storeData);
+
+        for(StoreData a : MainTest.stList) {
+            System.out.println("store name: " + a.getStore_Name() +
+                    "  ID: " + a.getStore_ID() +
+                    "  user ID: " + a.getUser_ID() +
+                    "  deleted: " + a.isDeleted());
+            System.out.print("store book ID: ");
+
+            for(int b : a.getBooks_ID()){
+                 System.out.print(b + " ");
+            }
+
+            System.out.println("\n");
+        }
+    }
 
 
     public static String getExtension(File file)

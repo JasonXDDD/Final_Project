@@ -48,4 +48,8 @@ public class ifStoreTool extends JInternalFrame {
         setVisible(true);
         getContentPane().setBackground(Color.WHITE);
     }
+
+    public JList getIfST_lsBookStore() {
+        return ifST_lsBookStore;
+    }
 }

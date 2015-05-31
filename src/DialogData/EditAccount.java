@@ -45,7 +45,7 @@ public class EditAccount extends BasicDialog implements ActionListener{
         SetTheSize(new int[]{50, 60, 120, 30, 80, 80, 50},
                 new int[]{30, 30, 30, 30, 30, 60, 30, 30});
 
-        Error = new JLabel("你需要穩定的網路連線，以獲得最佳體驗");
+        Error = new JLabel("");
         AddFiled(Error, new int[]{4,1,1,3});
 
         lbl = new JLabel("Name: ");
@@ -84,7 +84,7 @@ public class EditAccount extends BasicDialog implements ActionListener{
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e){
         if(e.getSource() == OK) {
             try {
                 Error.setText("");

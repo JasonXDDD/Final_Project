@@ -37,14 +37,13 @@ public class sLogin {
 
             urlMod.SendToServer(connection, user, null);
 
-            JSONObject obj = urlMod.PrintInput(connection);
             respondcode = connection.getResponseCode();
 
-            Answer = obj.getString("message");
-            System.out.println("Answer: " + Answer + " RespondCode: " + respondcode);
-
             if(respondcode/100 == 2) {
-                urlMod.SetData(obj, MainTest.accountData);
+                JSONObject obj = urlMod.PrintInput(connection);
+                Answer = obj.getString("message");
+                System.out.println("Answer: " + Answer + " RespondCode: " + respondcode);
+                urlMod.SetAccountData(obj, MainTest.accountData);
             }
 
             connection.disconnect();

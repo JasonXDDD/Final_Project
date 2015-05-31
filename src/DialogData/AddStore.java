@@ -1,6 +1,8 @@
 package DialogData;
 
 import PublicClass.ScreenSize;
+import ServerConnect.Gobel;
+import ServerConnect.sAddStore;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,9 +17,13 @@ public class AddStore extends BasicDialog implements ActionListener{
 
     private JLabel lbl;
     private JTextField enter_name;
+    private JLabel Error;
 
     private JButton OK;
     private JButton cancel;
+
+    private sAddStore sa;
+    private Gobel gbl;
 
     public AddStore(JFrame f, String str, boolean model){
         super(f,str,model);
@@ -25,21 +31,24 @@ public class AddStore extends BasicDialog implements ActionListener{
         scSize = new ScreenSize();
 
         SetTheSize(new int[]{50,30,80,80,50},
-                   new int[]{30,30,30,30});
+                   new int[]{30,30,30,30,30});
+
+        Error = new JLabel("");
+        AddFiled(Error, new int[]{2,1,1,2});
 
         lbl = new JLabel("Store Name: ");
-        AddFiled(lbl, new int[]{1,1,1,1});
+        AddFiled(lbl, new int[]{1,2,1,1});
 
         enter_name = new JTextField();
-        AddFiled(enter_name, new int[]{2,1,1,2});
+        AddFiled(enter_name, new int[]{2,2,1,2});
 
         cancel = new JButton("Cancel");
         cancel.addActionListener(this);
-        AddFiled(cancel, new int[]{2, 2, 1, 1});
+        AddFiled(cancel, new int[]{2, 3, 1, 1});
 
         OK = new JButton("Create");
         OK.addActionListener(this);
-        AddFiled(OK, new int[]{3, 2, 1, 1});
+        AddFiled(OK, new int[]{3, 3, 1, 1});
 
         pack();
         setLocation(scSize.getWidth()/2 - this.getWidth()/2,
@@ -53,12 +62,20 @@ public class AddStore extends BasicDialog implements ActionListener{
             System.out.println();
         }
         else if(e.getSource() == OK){
+            try {
+                sa = new sAddStore(gbl.getToken(), enter_name.getText());
 
+            }
+            catch (IOException I){
+                System.out.println("EditAccount actionPerformed IOException " + I.getMessage());
+            }
+
+            if (sa.getRespondcode() / 100 == 2) {
+                dispose();
+                System.out.println();
+            } else
+                Error.setText("名稱已存在!");
         }
     }
 
-    public static void main(String[] args){
-        AddStore ad = new AddStore(null, "Store Add", true);
-        ad.setVisible(true);
-    }
 }

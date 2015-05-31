@@ -40,12 +40,12 @@ public class sRegister {
 
             urlMod.SendToServer(connection, user, null);
 
-            JSONObject obj = urlMod.PrintInput(connection);
             respondcode = connection.getResponseCode();
 
             if(respondcode/100 == 2) {
+                JSONObject obj = urlMod.PrintInput(connection);
                 suphead = new sUploadHead(token, uploadfile);
-                urlMod.SetData(obj, MainTest.accountData);
+                urlMod.SetAccountData(obj, MainTest.accountData);
             }
 
             connection.disconnect();

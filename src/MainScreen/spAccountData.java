@@ -23,11 +23,10 @@ public class spAccountData extends JSplitPane {
 
         add(ifAT);
 
-        ifST_strBookName = new String[]{/*"BookStore-XDD", "Store2-QAQ", "Store3-OwO",
-                "Store1-XDD", "BStore1-XDD", "BStore1-XDD", "BStore-XDD", "Store1-XDD",
-                "BoStore", "BoStoreD", "BStoreD", "BoStoreDD", "BStoreXDD",
-                "BStore", "BStoreD", "BoStoreDD", "StoreDD", "StoreD",
-                "Book1-XStoreD", "BooStoreDD", "StoreXDD", "BStoreD", "BStoreXDD"*/};
+        ifST_strBookName = new String[]{};
+        for(int i = 0; i < MainTest.stList.size(); i++) {
+            ifST_strBookName[i] = MainTest.stList.get(i).getStore_Name();
+        }
         ifST = new ifStoreTool(3, ifST_strBookName);
         ifST.setBounds(500, 100, 280, 610);
 
@@ -43,4 +42,7 @@ public class spAccountData extends JSplitPane {
         return ifAT;
     }
 
+    public ifStoreTool getIfST() {
+        return ifST;
+    }
 }

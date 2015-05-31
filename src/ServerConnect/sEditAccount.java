@@ -44,12 +44,17 @@ public class sEditAccount {
             respondcode = connection.getResponseCode();
 
             if(respondcode/100 == 2) {
-                suphead = new sUploadHead(token, uploadfile);
-                System.out.println("sEditAccount uploadfile = " + uploadfile.toString());
-                if(suphead.getRespondcode()/100 ==2){
-                    obj.put("head_image_url", suphead.getHead_image_url());
-                    urlMod.SetData(obj, MainTest.accountData);
-                    System.out.println("sEditAccount JSONObj headURL = " + obj.getString("head_image_url"));
+                if(uploadfile == null){
+                    urlMod.SetAccountData(obj, MainTest.accountData);
+                }
+                else {
+                    suphead = new sUploadHead(token, uploadfile);
+                    System.out.println("sEditAccount uploadfile = " + uploadfile.toString());
+                    if (suphead.getRespondcode() / 100 == 2) {
+                        obj.put("head_image_url", suphead.getHead_image_url());
+                        urlMod.SetAccountData(obj, MainTest.accountData);
+                        System.out.println("sEditAccount JSONObj headURL = " + obj.getString("head_image_url"));
+                    }
                 }
             }
             System.out.println();

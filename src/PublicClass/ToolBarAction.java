@@ -1,5 +1,6 @@
 package PublicClass;
 
+import DataClass.StoreData;
 import DialogData.AddStore;
 import DialogData.EditAccount;
 import DialogData.EditStore;
@@ -16,6 +17,7 @@ import java.awt.event.ActionListener;
  */
 public class ToolBarAction extends JButton implements ActionListener{
     private ImageIcon head, Show;
+    private String[] Name = new String[100];
 
     public ToolBarAction(String name, Icon icon){
         super(name, icon);
@@ -45,6 +47,16 @@ public class ToolBarAction extends JButton implements ActionListener{
         else if(e.getActionCommand() == "sAdd"){
             AddStore sAdd = new AddStore(null, "StoreAdd", true);
             sAdd.setVisible(true);
+
+            int a = 0;
+            for(StoreData i : MainTest.stList) {
+                Name[a] = i.getStore_Name();
+                System.out.println(Name[a]);
+                a++;
+            }
+
+            MainTest.testFrame.getMF_spAccountData().getIfST().
+                    getIfST_lsBookStore().setListData(Name);
         }
 
         else if(e.getActionCommand() == "sEdit"){

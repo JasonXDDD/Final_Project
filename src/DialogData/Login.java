@@ -57,7 +57,7 @@ public class Login extends JDialog implements ActionListener{
 
             switch (i){
                 case 0:
-                    Error = new JLabel("");
+                    Error = new JLabel("你需要穩定的網路連線，以獲得最佳體驗");
                     add(Error, gbc);
                     break;
                 case 1:
