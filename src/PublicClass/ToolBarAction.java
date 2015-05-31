@@ -1,9 +1,9 @@
 package PublicClass;
 
+import DataClass.BookData;
 import DataClass.StoreData;
-import DialogData.AddStore;
-import DialogData.EditAccount;
-import DialogData.EditStore;
+import DialogData.*;
+import MainScreen.BookPanel;
 import MainScreen.MainFrame;
 import MainScreen.MainTest;
 
@@ -45,7 +45,7 @@ public class ToolBarAction extends JButton implements ActionListener{
 
 
         else if(e.getActionCommand() == "sAdd"){
-            AddStore sAdd = new AddStore(null, "StoreAdd", true);
+            AddStore sAdd = new AddStore(null, "AddStore", true);
             sAdd.setVisible(true);
 
             int a = 0;
@@ -62,7 +62,7 @@ public class ToolBarAction extends JButton implements ActionListener{
         else if(e.getActionCommand() == "sEdit"){
             if(MainTest.testFrame.getMF_spAccountData().getIfST()
                     .getIfST_lsBookStore().isSelectionEmpty() == true) return;
-            EditStore sEdit = new EditStore(null, "StoreEdit", true);
+            EditStore sEdit = new EditStore(null, "EditStore", true);
             sEdit.setVisible(true);
 
             int a = 0;
@@ -75,8 +75,29 @@ public class ToolBarAction extends JButton implements ActionListener{
             MainTest.testFrame.getMF_spAccountData().getIfST().
                     getIfST_lsBookStore().setListData(Name);
         }
+
+        else if(e.getActionCommand() == "bAdd"){
+            AddBook bAdd = new AddBook(null, "AddBook", true);
+            bAdd.setVisible(true);
+
+
+
+            MainTest.testFrame.getMF_pnBook().getPnCeter().removeAll();
+
+            for(BookData a : MainTest.bkList) {
+                System.out.println("Add Book: name:" + a.getBk_Name());
+                MainTest.testFrame.getMF_pnBook().AddBook(a);
+            }
+
+            MainTest.testFrame.revalidate();
+            MainTest.testFrame.repaint();
+            System.out.println("!!!MainFrame Renew!!!\n");
+        }
+
+        else if(e.getActionCommand() == "bEdit"){
+            EditBook bEdit = new EditBook(null, "EditBook", true);
+            bEdit.setVisible(true);
+
+        }
     }
-
-
-
 }

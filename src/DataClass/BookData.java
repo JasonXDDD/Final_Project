@@ -7,14 +7,15 @@ import javax.swing.*;
  */
 public class BookData {
     private String Bk_Name;
-    private ImageIcon Bk_Pic;
+    private ImageIcon Bk_cover;
+    private String Bk_cover_URL;
     private String Bk_ISBN;
     private String Bk_Author;
     private String Bk_Publisher;
 
     private String Bk_PubDate;
     private String Bk_Price;
-    private String BK_Tag;
+    private String Bk_Tag;
 
     private boolean Bk_Delete;
     private int Bk_ID;
@@ -26,19 +27,25 @@ public class BookData {
         Bk_ISBN = new String();
         Bk_Name = new String();
         Bk_ID = 0;
-        Bk_Pic = null;
+        Bk_cover = null;
         Bk_Price = new String();
         Bk_Publisher = new String();
-
-
     }
 
-    public String getBK_Tag() {
-        return BK_Tag;
+    public String getBk_cover_URL() {
+        return Bk_cover_URL;
     }
 
-    public void setBK_Tag(String BK_Tag) {
-        this.BK_Tag = BK_Tag;
+    public void setBk_cover_URL(String bk_cover_URL) {
+        Bk_cover_URL = bk_cover_URL;
+    }
+
+    public String getBk_Tag() {
+        return Bk_Tag;
+    }
+
+    public void setBk_Tag(String bk_Tag) {
+        this.Bk_Tag = bk_Tag;
     }
 
     public void setBk_Author(String bk_Author) {
@@ -65,8 +72,8 @@ public class BookData {
         Bk_ID = bk_ID;
     }
 
-    public void setBk_Pic(ImageIcon bk_Pic) {
-        Bk_Pic = bk_Pic;
+    public void setBk_cover(ImageIcon bk_cover) {
+        Bk_cover = bk_cover;
     }
 
     public void setBk_Price(String bk_Price) {
@@ -101,8 +108,8 @@ public class BookData {
         return Bk_ID;
     }
 
-    public ImageIcon getBk_Pic() {
-        return Bk_Pic;
+    public ImageIcon getBk_cover() {
+        return Bk_cover;
     }
 
     public String getBk_Price() {

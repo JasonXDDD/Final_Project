@@ -121,7 +121,7 @@ public class pnBookInfor extends JPanel {
                     break;
 
                 case 12:
-                    bk_head = new JLabel(book.getBk_Pic());
+                    bk_head = new JLabel(book.getBk_cover());
                     SetLabel(bk_head);
                     add(bk_head,gbc);
                     break;

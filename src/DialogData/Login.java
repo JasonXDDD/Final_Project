@@ -108,8 +108,6 @@ public class Login extends JDialog implements ActionListener{
             enter_passwd.setText("");
             enter_email.setText("");
 
-            System.out.println("Check Answer: " + sl.getAnswer() + "  " +
-                    sl.getAnswer().equals("Login successful"));
             if (sl.getRespondcode()/100 == 2) {
                 System.out.println();
                 dispose();

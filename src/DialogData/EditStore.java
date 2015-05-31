@@ -95,7 +95,7 @@ public class EditStore extends BasicDialog implements ActionListener{
                 dispose();
                 System.out.println();
             } else
-                Error.setText("名稱已存在!");
+                Error.setText("請輸入正確名稱!!");
         }
     }
 }

@@ -3,6 +3,17 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Final_Project_jar</output-path>
     <root id="archive" name="Final_Project.jar">
       <element id="module-output" name="Final_Project" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/httpcomponents-client-4.4.1-bin (1)/httpcomponents-client-4.4.1/lib/jna-4.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/httpcomponents-client-4.4.1-bin (1)/httpcomponents-client-4.4.1/lib/httpcore-4.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/httpcomponents-client-4.4.1-bin (1)/httpcomponents-client-4.4.1/lib/httpmime-4.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/httpcomponents-client-4.4.1-bin (1)/httpcomponents-client-4.4.1/lib/fluent-hc-4.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/httpcomponents-client-4.4.1-bin (1)/httpcomponents-client-4.4.1/lib/httpclient-4.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/httpcomponents-client-4.4.1-bin (1)/httpcomponents-client-4.4.1/lib/commons-codec-1.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/httpcomponents-client-4.4.1-bin (1)/httpcomponents-client-4.4.1/lib/jna-platform-4.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/httpcomponents-client-4.4.1-bin (1)/httpcomponents-client-4.4.1/lib/commons-logging-1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/httpcomponents-client-4.4.1-bin (1)/httpcomponents-client-4.4.1/lib/httpclient-win-4.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/httpcomponents-client-4.4.1-bin (1)/httpcomponents-client-4.4.1/lib/httpclient-cache-4.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/XDD.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

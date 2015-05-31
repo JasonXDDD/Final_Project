@@ -39,6 +39,14 @@ public class MainFrame extends JFrame{
         System.out.println();
     }
 
+    public BookPanel getMF_pnBook() {
+        return MF_pnBook;
+    }
+
+    public void setMF_pnBook(BookPanel MF_pnBook) {
+        this.MF_pnBook = MF_pnBook;
+    }
+
     public spAccountData getMF_spAccountData() {
         return MF_spAccountData;
     }

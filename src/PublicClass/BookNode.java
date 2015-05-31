@@ -1,12 +1,17 @@
 package PublicClass;
 
+import DataClass.BookData;
+import MainScreen.MainTest;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by JASON_ on 2015/5/16.
  */
-public class BookNode extends JPanel {
+public class BookNode extends JPanel implements ActionListener{
     private Image fixSize;
     private Image GetPic;
     private ImageIcon Show;
@@ -24,6 +29,7 @@ public class BookNode extends JPanel {
         Show = new ImageIcon(fixSize);
 
         bn_btnShow = new JButton(Show);
+        bn_btnShow.addActionListener(this);
         bn_btnShow.setBackground(Color.WHITE);
         //bn_btnShow.setLocation(5, 5);
         add(bn_btnShow);
@@ -34,6 +40,12 @@ public class BookNode extends JPanel {
 
         setBackground(Color.WHITE);
         setSize(250,500);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        for(BookData a : MainTest.bkList){
+        }
     }
 
     public int SetPicWidth(ImageIcon head, int y){

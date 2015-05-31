@@ -11,38 +11,37 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
-
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-
-
 /**
- * Created by JASON_ on 2015/5/27.
+ * Created by JASON_ on 2015/6/1.
  */
-public class sUploadHead {
+public class sUploadFile {
     private URL ADD_URL;
     private SetURL urlMod = new SetURL();
     private int respondcode = 0;
-    private String head_image_url;
+    private String cover_image_url;
 
-    private static final int sUploadHead = 5;
+    private static final int sUploadFile = 4;;
 
-    public sUploadHead(String token, File uploadfile) throws IOException {
-        System.out.println("--upload Head---");
+    public sUploadFile(String token, File uploadfile, int ID) throws IOException {
+        System.out.println("--upload Book Head---");
 
         try {
             CloseableHttpClient client = HttpClients.createDefault();
 
-            ADD_URL = new URL(urlMod.ChooseRequest(sUploadHead, 0));
+            ADD_URL = new URL(urlMod.ChooseRequest(sUploadFile, ID));
             HttpPost post = new HttpPost(ADD_URL.toString());
             post.addHeader("token", token);
 
             FileBody upload = new FileBody(uploadfile);
 
             HttpEntity request = MultipartEntityBuilder.create()
-                    .addPart("head_image", upload).build();
+                    .addPart("cover_image", upload).build();
 
             post.setEntity(request);
 
@@ -55,13 +54,13 @@ public class sUploadHead {
                 String responseStr = EntityUtils.toString(responceEntity);
 
                 if (responceEntity != null){
-                    System.out.println("Head upload: " + responseStr);
+                    System.out.println("Cover upload: " + responseStr);
 
                     JSONObject obj = new JSONObject(responseStr);
-                    System.out.println("sUploadHead: Head-upload ResponseJSONObj HeadURL = " + obj.getString("head_image_url"));
-                    head_image_url = obj.getString("head_image_url");
+                    System.out.println("sUploadFile: Cover-upload ResponseJSONObj CoverURL = " + obj.getString("cover_image_url"));
+                    cover_image_url = obj.getString("cover_image_url");
 
-                    urlMod.SetHeadData(obj, MainTest.accountData, uploadfile);
+                    urlMod.SetFileData(obj, MainTest.bookData, uploadfile);
                     respondcode = response.getStatusLine().getStatusCode();
                 }
                 else
@@ -89,8 +88,7 @@ public class sUploadHead {
         return respondcode;
     }
 
-    public String getHead_image_url() {
-        return head_image_url;
+    public String getCover_image_url() {
+        return cover_image_url;
     }
 }
-
