@@ -42,8 +42,10 @@ public class sAddStore {
             respondcode = connection.getResponseCode();
 
             if(respondcode/100 == 2) {
-                JSONArray objlist = urlMod.PrintInputArray(connection);
-                urlMod.SetStoreData(objlist);
+                JSONObject obj = urlMod.PrintInput(connection);
+                JSONArray objlist = new JSONArray();
+                objlist.put(obj);
+                urlMod.SetStoreData(objlist, 0);
             }
 
             System.out.println();

@@ -62,6 +62,16 @@ public class ToolBarAction extends JButton implements ActionListener{
         else if(e.getActionCommand() == "sEdit"){
             EditStore sEdit = new EditStore(null, "StoreEdit", true);
             sEdit.setVisible(true);
+
+            int a = 0;
+            for(StoreData i : MainTest.stList) {
+                Name[a] = i.getStore_Name();
+                System.out.println(Name[a]);
+                a++;
+            }
+
+            MainTest.testFrame.getMF_spAccountData().getIfST().
+                    getIfST_lsBookStore().setListData(Name);
         }
     }
 

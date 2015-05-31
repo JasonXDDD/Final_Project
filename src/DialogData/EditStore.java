@@ -1,11 +1,17 @@
 package DialogData;
 
+import DataClass.BookData;
+import DataClass.StoreData;
 import MainScreen.MainTest;
 import PublicClass.ScreenSize;
+import ServerConnect.Gobel;
+import ServerConnect.sAddStore;
+import ServerConnect.sEditStore;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 /**
  * Created by JASON_ on 2015/5/30.
@@ -15,31 +21,42 @@ public class EditStore extends BasicDialog implements ActionListener{
 
     private JLabel lbl;
     private JTextField enter_name;
+    private JLabel Error;
 
     private JButton OK;
     private JButton cancel;
+
+    private Gobel gbl;
+    private sEditStore se;
+
+    private String choose;
 
     public EditStore(JFrame f, String str, boolean model){
         super(f,str,model);
 
         scSize = new ScreenSize();
+        choose = MainTest.testFrame.getMF_spAccountData().getIfST().getIfST_lsBookStore().getSelectedValue().toString();
+//        System.out.println("Choose" + choose);
 
         SetTheSize(new int[]{50,30,80,80,50},
-                new int[]{30,30,30,30});
+                new int[]{30,30,30,30,30});
+
+        Error = new JLabel("");
+        AddFiled(Error, new int[]{2,1,1,2});
 
         lbl = new JLabel("Store Name: ");
-        AddFiled(lbl, new int[]{1,1,1,1});
+        AddFiled(lbl, new int[]{1,2,1,1});
 
-        enter_name = new JTextField(MainTest.storeData.getStore_Name());
-        AddFiled(enter_name, new int[]{2,1,1,2});
+        enter_name = new JTextField(choose);
+        AddFiled(enter_name, new int[]{2,2,1,2});
 
         cancel = new JButton("Cancel");
         cancel.addActionListener(this);
-        AddFiled(cancel, new int[]{2, 2, 1, 1});
+        AddFiled(cancel, new int[]{2, 3, 1, 1});
 
         OK = new JButton("Create");
         OK.addActionListener(this);
-        AddFiled(OK, new int[]{3, 2, 1, 1});
+        AddFiled(OK, new int[]{3, 3, 1, 1});
 
         pack();
         setLocation(scSize.getWidth()/2 - this.getWidth()/2,
@@ -54,6 +71,31 @@ public class EditStore extends BasicDialog implements ActionListener{
         }
         else if(e.getSource() == OK){
 
+            StoreData chStore = new StoreData();
+
+            for(StoreData i : MainTest.stList){
+                if(i.getStore_Name() == choose) {
+                    chStore = i;
+                    break;
+                }
+            }
+
+            try {
+                System.out.println("Edit Store Dialog: name: " + enter_name.getText() +
+                        "  ID: " + chStore.getStore_ID());
+                se = new sEditStore(gbl.getToken(), enter_name.getText()
+                            , chStore.getStore_ID());
+
+            }
+            catch (IOException I){
+                System.out.println("EditAccount actionPerformed IOException " + I.getMessage());
+            }
+
+            if (se.getRespondcode() / 100 == 2) {
+                dispose();
+                System.out.println();
+            } else
+                Error.setText("名稱已存在!");
         }
     }
 }

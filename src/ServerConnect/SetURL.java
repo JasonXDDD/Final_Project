@@ -33,6 +33,7 @@ public class SetURL {
     private static final int sUploadFile = 4;
     private static final int sUploadHead = 5;
     private static final int sAddStore = 6;
+    private static final int sEditStore = 7;
 
     public SetURL(){ }
 
@@ -57,6 +58,9 @@ public class SetURL {
             case sAddStore:
                 ADD_URL = new String("http://163.13.128.116:5000/api/category");
                 break;
+            case sEditStore:
+                ADD_URL = new String("http://163.13.128.116:5000/api/category/" + ID);
+                break;
         }
         return ADD_URL;
     }
@@ -75,7 +79,6 @@ public class SetURL {
 
     public JSONArray PrintInputArray(HttpURLConnection connection) throws IOException{
         JSONArray objlist;
-        JSONObject obj;
 
         try {
             StringBuffer sb = new StringBuffer("");
@@ -233,7 +236,9 @@ public class SetURL {
     }
 
 
-    public void SetStoreData(JSONArray objlist){
+    public void SetStoreData(JSONArray objlist, int ID){
+        MainTest.storeData = new StoreData();
+
         for(int i = 0; i < objlist.length(); i++){
             MainTest.storeData.setStore_ID(objlist.getJSONObject(i).getInt("category_id"));
             MainTest.storeData.setStore_Name(objlist.getJSONObject(i).getString("category_name"));
@@ -250,7 +255,19 @@ public class SetURL {
             MainTest.storeData.setBooks_ID(booklist);
         }
 
-        MainTest.stList.add(MainTest.storeData);
+        if(ID == 0) {
+            MainTest.stList.add(MainTest.storeData);
+        }
+        else{
+            for(StoreData i : MainTest.stList){
+                if(i.getStore_ID() == ID){
+                    i = MainTest.storeData;
+                    System.out.println("Edit on SetStoreData: ID: " + i.getStore_ID() +
+                                        "  Name: " + i.getStore_Name());
+                    break;
+                }
+            }
+        }
 
         for(StoreData a : MainTest.stList) {
             System.out.println("store name: " + a.getStore_Name() +
