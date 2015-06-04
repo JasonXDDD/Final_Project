@@ -24,7 +24,7 @@ public class ifAccountTool extends JInternalFrame {
         setLayout(null);
         lp_layer = this.getLayeredPane();
 
-        head = ImageProcess.scaleImage(head, 230);
+        head = ImageProcess.scaleImage(head, 230, ImageProcess.Auto);
         head = ImageProcess.cutImage(head, 0, 0, 230, 230);
 
         ifAT_iclblHead = new JLabel(head);

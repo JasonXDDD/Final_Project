@@ -36,7 +36,7 @@ public class ToolBarAction extends JButton implements ActionListener{
                 System.out.println("Edit Head: " + MainTest.accountData.getAccount_Head());
 
                 head = MainTest.accountData.getAccount_Head();
-                Show = ImageProcess.scaleImage(head, 230);
+                Show = ImageProcess.scaleImage(head, 230, ImageProcess.Auto);
                 Show = ImageProcess.cutImage(Show, 0, 0, 230, 230);
                 MainTest.testFrame.getMF_spAccountData().getIfAT().getIfAT_iclblHead().
                         setIcon(Show);
@@ -99,5 +99,7 @@ public class ToolBarAction extends JButton implements ActionListener{
             bEdit.setVisible(true);
 
         }
+
+
     }
 }

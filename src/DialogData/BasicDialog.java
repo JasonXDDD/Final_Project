@@ -11,6 +11,9 @@ import java.util.Map;
 /**
  * Created by JASON_ on 2015/5/26.
  */
+
+
+
 public class BasicDialog extends JDialog {
     private ScreenSize scSize;
 
@@ -18,6 +21,7 @@ public class BasicDialog extends JDialog {
     private GridBagLayout gb = new GridBagLayout();
     private int rownum = 0;
     private int colnum = 0;
+
 
     private int[] col;
     private int[] row;
@@ -38,6 +42,7 @@ public class BasicDialog extends JDialog {
         pack();
 
     }
+
     public void SetTheSize(int[] col, int[] row){
         this.col = col;
         this.row = row;
@@ -50,6 +55,6 @@ public class BasicDialog extends JDialog {
         gbc.setValue(gbc, pos[0], pos[1], pos[2], pos[3]);
         getContentPane().add(filed, gbc);
 
-
     }
 }
+

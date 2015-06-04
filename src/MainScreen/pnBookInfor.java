@@ -116,7 +116,7 @@ public class pnBookInfor extends JPanel {
                     add(bk_Date,gbc);
                     break;
                 case 11:
-                    bk_Price.setText(book.getBk_Price());
+                    bk_Price.setText(book.getBk_Price() + "");
                     add(bk_Price,gbc);
                     break;
 

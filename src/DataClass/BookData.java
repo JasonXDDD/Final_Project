@@ -14,7 +14,7 @@ public class BookData {
     private String Bk_Publisher;
 
     private String Bk_PubDate;
-    private String Bk_Price;
+    private int Bk_Price;
     private String Bk_Tag;
 
     private boolean Bk_Delete;
@@ -28,7 +28,7 @@ public class BookData {
         Bk_Name = new String();
         Bk_ID = 0;
         Bk_cover = null;
-        Bk_Price = new String();
+        Bk_Price = 0;
         Bk_Publisher = new String();
     }
 
@@ -76,7 +76,7 @@ public class BookData {
         Bk_cover = bk_cover;
     }
 
-    public void setBk_Price(String bk_Price) {
+    public void setBk_Price(int bk_Price) {
         Bk_Price = bk_Price;
     }
 
@@ -112,7 +112,7 @@ public class BookData {
         return Bk_cover;
     }
 
-    public String getBk_Price() {
+    public int getBk_Price() {
         return Bk_Price;
     }
 

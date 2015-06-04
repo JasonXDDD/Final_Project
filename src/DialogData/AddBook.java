@@ -49,7 +49,7 @@ public class AddBook extends BasicDialog implements ActionListener{
 
 
         head = new ImageIcon(getClass().getResource("head.jpg"));
-        Show = ImageProcess.scaleImage(head, 210);
+        Show = ImageProcess.scaleImage(head, 210, ImageProcess.Auto);
 
         headbtn = new JButton(Show);
         headbtn.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -76,7 +76,7 @@ public class AddBook extends BasicDialog implements ActionListener{
         AddFiled(enter_Publisher, new int[]{3,5,1,2});
         enter_PubDate = new JTextField();
         AddFiled(enter_PubDate, new int[]{3,6,1,2});
-        enter_Price = new JTextField();
+        enter_Price = new JTextField("0");
         AddFiled(enter_Price, new int[]{3,7,1,2});
         enter_Tag = new JTextField();
         AddFiled(enter_Tag, new int[]{3,8,1,2});
@@ -112,7 +112,7 @@ public class AddBook extends BasicDialog implements ActionListener{
                 System.out.println("set head file: " + file.toString());
                 head = new ImageIcon(str);
 
-                Show = ImageProcess.scaleImage(head, 210);
+                Show = ImageProcess.scaleImage(head, 210, ImageProcess.Auto);
 
                 headbtn.setIcon(Show);
             }

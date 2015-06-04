@@ -10,6 +10,9 @@ import java.awt.image.ImageFilter;
  * Created by JASON_ on 2015/5/27.
  */
 public class ImageProcess {
+    public static final int Height = 1;
+    public static final int Width = 2;
+    public static final int Auto = 3;
 
     public static ImageIcon cutImage(ImageIcon head , int x, int y,
                                                     int width, int height){
@@ -27,20 +30,27 @@ public class ImageProcess {
         return Show;
     }
 
-    public static ImageIcon scaleImage(ImageIcon head , int i){
+    public static ImageIcon scaleImage(ImageIcon head , int i, int changetype){
         Image GetPic;
         Image fixSize;
         ImageIcon Show;
 
         GetPic = head.getImage();
 
-        if(head.getIconWidth() >= head.getIconHeight())
+        if(changetype == Width)
             fixSize = GetPic.getScaledInstance
                     (SetPicLength(head, i), i, Image.SCALE_SMOOTH);
-        else
+        else if(changetype == Height)
             fixSize = GetPic.getScaledInstance
                     (i, SetPicLength(head, i), Image.SCALE_SMOOTH);
-
+        else {
+            if(head.getIconWidth() >= head.getIconHeight())
+                fixSize = GetPic.getScaledInstance
+                        (SetPicLength(head, i), i, Image.SCALE_SMOOTH);
+            else
+                fixSize = GetPic.getScaledInstance
+                        (i, SetPicLength(head, i), Image.SCALE_SMOOTH);
+        }
         Show = new ImageIcon(fixSize);
 
         return Show;

@@ -18,7 +18,7 @@ public class BookNode extends JPanel implements ActionListener{
     private int x;
 
     private JButton bn_btnShow;
-    private JLabel bn_lblName;
+//    private JLabel bn_lblName;
 
     public BookNode(ImageIcon head, String name){
         setLayout(new BorderLayout());
@@ -28,15 +28,18 @@ public class BookNode extends JPanel implements ActionListener{
         fixSize = GetPic.getScaledInstance(SetPicWidth(head, 200), 200, Image.SCALE_SMOOTH);
         Show = new ImageIcon(fixSize);
 
-        bn_btnShow = new JButton(Show);
+        bn_btnShow = new JButton(name,Show);
+        bn_btnShow.setVerticalTextPosition(JButton.BOTTOM);
+        bn_btnShow.setHorizontalTextPosition(JButton.CENTER);
+        bn_btnShow.setFont(new Font("微軟正黑體", Font.BOLD, 14));
         bn_btnShow.addActionListener(this);
         bn_btnShow.setBackground(Color.WHITE);
         //bn_btnShow.setLocation(5, 5);
         add(bn_btnShow);
 
-        bn_lblName = new JLabel(name, JLabel.CENTER);
-        bn_lblName.setFont(new Font("微軟正黑體", Font.BOLD, 14));
-        add(bn_lblName, BorderLayout.SOUTH);
+//        bn_lblName = new JLabel(name, JLabel.CENTER);
+//        bn_lblName.setFont(new Font("微軟正黑體", Font.BOLD, 14));
+//        add(bn_lblName, BorderLayout.SOUTH);
 
         setBackground(Color.WHITE);
         setSize(250,500);
@@ -44,7 +47,15 @@ public class BookNode extends JPanel implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        for(BookData a : MainTest.bkList){
+        for(BookData a : MainTest.bkList) {
+            if (e.getActionCommand() == a.getBk_Name()) {
+                System.out.println("Now Selected: " + a.getBk_Name() + " ID: " + e.getID());
+                bn_btnShow.setBackground(Color.BLUE);
+                bn_btnShow.updateUI();
+            } else {
+                bn_btnShow.setBackground(Color.WHITE);
+                bn_btnShow.updateUI();
+            }
         }
     }
 

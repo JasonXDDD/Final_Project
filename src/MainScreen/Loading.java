@@ -40,7 +40,7 @@ public class Loading extends JFrame {
         lp_layer.add(TXT, BorderLayout.SOUTH, new Integer(-300000));
 
 
-        Show = ImageProcess.scaleImage(head, 400);
+        Show = ImageProcess.scaleImage(head, 400, ImageProcess.Width);
         loading = new JLabel(Show);
         this.getContentPane().add(loading, BorderLayout.CENTER);
 

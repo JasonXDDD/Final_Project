@@ -5,6 +5,7 @@ import PublicClass.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
@@ -12,6 +13,7 @@ import java.util.ArrayList;
  */
 public class BookPanel extends JPanel{
     private BookNode bookNode;
+    private ArrayList<BookNode> bookNodesList = new ArrayList<BookNode>();
 
     private pnBookInfor bookInfor;
 
@@ -28,13 +30,16 @@ public class BookPanel extends JPanel{
 
         pnBottom = new JPanel();
 
-
         pnCeter = new JPanel(new WrapLayout(FlowLayout.LEADING, 60, 60));
         pnCeter.setSize(1000, 1500);
         pnCeter.setBackground(Color.WHITE);
         sp_scroll.add(pnCeter);
         add(sp_scroll, BorderLayout.CENTER);
 
+        for(BookData a : MainTest.bkList) {
+            System.out.println("Add Book: name:" + a.getBk_Name());
+            AddBook(a);
+        }
 
         BT_toolbar = new ToolBar();
         BT_toolbar.AddTool("bAdd", null);
@@ -58,7 +63,9 @@ public class BookPanel extends JPanel{
             bookData.setBk_cover(new ImageIcon(getClass().getResource("bookhead.jpg")));
         else
             System.out.println("AddBook: " + bookData.getBk_cover().toString());
+
         bookNode = new BookNode(bookData.getBk_cover(), bookData.getBk_Name());
+        bookNodesList.add(bookNode);
         pnCeter.add(bookNode);
 
     }

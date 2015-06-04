@@ -37,6 +37,7 @@ public class SetURL {
     private static final int sEditStore = 7;
     private static final int sGetStore = 6;
     private static final int sAddBook = 8;
+    private static final int sGetBook = 8;
 
     public SetURL(){ }
 
@@ -64,7 +65,7 @@ public class SetURL {
             case sEditStore:
                 ADD_URL = new String("http://163.13.128.116:5000/api/category/" + ID);
                 break;
-            case sAddBook:
+            case sAddBook | sGetBook:
                 ADD_URL = new String("http://163.13.128.116:5000/api/book");
                 break;
 
@@ -299,14 +300,14 @@ public class SetURL {
         }
     }
 
-    public void SetBookData(JSONArray objlist, File upload, int ID){
+    public void SetBookData(JSONArray objlist, int ID){
         System.out.println(objlist.toString());
         for(int i = 0; i < objlist.length(); i++) {
             MainTest.bookData = new BookData();
 
             MainTest.bookData.setBk_Name(objlist.getJSONObject(i).getString("bookname"));
             MainTest.bookData.setBk_Publisher(objlist.getJSONObject(i).getString("publisher"));
-            MainTest.bookData.setBk_Price(objlist.getJSONObject(i).getString("price"));
+            MainTest.bookData.setBk_Price(objlist.getJSONObject(i).getInt("price"));
             MainTest.bookData.setBk_PubDate(objlist.getJSONObject(i).getString("publish_date"));
             MainTest.bookData.setBk_Author(objlist.getJSONObject(i).getString("author"));
             MainTest.bookData.setBk_ID(objlist.getJSONObject(i).getInt("book_id"));
@@ -315,7 +316,7 @@ public class SetURL {
             MainTest.bookData.setBk_Tag(tags.toString());
             MainTest.bookData.setBk_Delete(objlist.getJSONObject(i).getBoolean("deleted"));
 
-            if(upload != null) {
+            if(objlist.getJSONObject(i).isNull("cover_image_url") == false) {
                 MainTest.bookData.setBk_cover_URL(objlist.getJSONObject(i).getString("cover_image_url"));
                 System.out.println("SetData: JSONObj getCoverURL = " + objlist.getJSONObject(i).getString("cover_image_url"));
                 System.out.println("SetData: Book cover_image_url = " + MainTest.bookData.getBk_cover_URL());

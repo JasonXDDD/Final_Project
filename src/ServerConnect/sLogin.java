@@ -45,7 +45,8 @@ public class sLogin {
                 System.out.println("Answer: " + Answer + " RespondCode: " + respondcode);
                 urlMod.SetAccountData(obj, MainTest.accountData);
 
-                sGetStore sg = new sGetStore(token);
+                sGetStore sgs = new sGetStore(token);
+                sGetBook sgb = new sGetBook(token);
             }
 
             connection.disconnect();

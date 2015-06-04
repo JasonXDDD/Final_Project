@@ -69,7 +69,7 @@ public class EditAccount extends BasicDialog implements ActionListener{
         AddFiled(cancel, new int[]{4,6,1,1});
 
         head = MainTest.accountData.getAccount_Head();
-        Show = ImageProcess.scaleImage(head, 180);
+        Show = ImageProcess.scaleImage(head, 180, ImageProcess.Auto);
         Show = ImageProcess.cutImage(Show, 0,0,180,180);
 
         headbtn = new JButton(Show);
@@ -126,7 +126,7 @@ public class EditAccount extends BasicDialog implements ActionListener{
             System.out.println("set head file: " + file.toString());
             head = new ImageIcon(str);
 
-            Show = ImageProcess.scaleImage(head, 180);
+            Show = ImageProcess.scaleImage(head, 180, ImageProcess.Auto);
             Show = ImageProcess.cutImage(Show, 0,0,180,180);
 
             headbtn.setIcon(Show);

@@ -1,9 +1,7 @@
 package ServerConnect;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
@@ -13,48 +11,30 @@ import java.net.URL;
 /**
  * Created by JASON_ on 2015/6/1.
  */
-public class sAddBook {
+public class sGetBook {
     private URL ADD_URL;
     private SetURL urlMod = new SetURL();
     private int respondcode = 0;
-    private sUploadFile upfile;
 
-    private static final int sAddBook = 8;
+    private static final int sGetBook = 8;
     private HttpURLConnection connection = null;
 
-    public sAddBook(String token, String name, String ISBN,
-                    String Author, String Publisher, String Publish_Date,
-                    String Price, String Tag, File upload) throws IOException {
-        System.out.println("------Add Book------");
-
+    public sGetBook(String token) throws IOException {
+        System.out.println("------Get Book------");
 
         try {
-            ADD_URL = new URL(urlMod.ChooseRequest(sAddBook, 0));
+            ADD_URL = new URL(urlMod.ChooseRequest(sGetBook, 0));
             connection = (HttpURLConnection) ADD_URL.openConnection();
 
-            connection = urlMod.Astribute(connection, "POST");
+            connection = urlMod.Astribute(connection, "GET");
 
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestProperty("token", token);
 
-            JSONObject user = new JSONObject();
-            user.put("bookname", name);
-            user.put("publisher", Publisher);
-            user.put("ISBN", ISBN);
-            user.put("price", Price);
-            user.put("author", Author);
-            user.put("publish_date", Publish_Date);
-            user.put("tag", Tag);
-
-            urlMod.SendToServer(connection, user, null);
             respondcode = connection.getResponseCode();
 
             if(respondcode/100 == 2) {
-                JSONObject obj = urlMod.PrintInput(connection);
-                upfile = new sUploadFile(token, upload, obj.getInt("book_id"));
-                obj.put("cover_image_url", upfile.getCover_image_url());
-                JSONArray objlist = new JSONArray();
-                objlist.put(obj);
+                JSONArray objlist = urlMod.PrintInputArray(connection);
                 urlMod.SetBookData(objlist, 0);
             }
 
