@@ -5,13 +5,14 @@ import PublicClass.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
  * Created by JASON_ on 2015/5/15.
  */
-public class BookPanel extends JPanel{
+public class BookPanel extends JPanel implements ActionListener{
     private BookNode bookNode;
     private ArrayList<BookNode> bookNodesList = new ArrayList<BookNode>();
 
@@ -64,10 +65,26 @@ public class BookPanel extends JPanel{
         else
             System.out.println("AddBook: " + bookData.getBk_cover().toString());
 
-        bookNode = new BookNode(bookData.getBk_cover(), bookData.getBk_Name());
+        bookNode = new BookNode(bookData);
+        bookNode.addActionListener(this);
         bookNodesList.add(bookNode);
         pnCeter.add(bookNode);
 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        for(BookNode a : bookNodesList){
+            if(e.getSource() == a){
+                System.out.println("Select node: " + a.getText() + " ID: " + a.x);
+                a.setBackground(Color.cyan);
+                a.updateUI();
+            }
+            else {
+                a.setBackground(Color.WHITE);
+                a.updateUI();
+            }
+        }
     }
 
     public JPanel getPnCeter() {
