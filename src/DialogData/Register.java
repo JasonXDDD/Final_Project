@@ -6,6 +6,7 @@ import PublicClass.GBConstraint;
 import PublicClass.ImageProcess;
 import PublicClass.ScreenSize;
 import ServerConnect.Gobel;
+import ServerConnect.sAddStore;
 import ServerConnect.sRegister;
 
 import javax.swing.*;
@@ -22,6 +23,7 @@ import java.io.IOException;
 public class Register extends JDialog implements ActionListener{
     private ScreenSize scSize;
     private sRegister sr;
+    private sAddStore sa;
 
     private Gobel gbl;
 
@@ -151,6 +153,11 @@ public class Register extends JDialog implements ActionListener{
             if(sr.getRespondcode()/100 == 2){
                 dispose();
                 System.out.println();
+                try {
+                    sa = new sAddStore(gbl.getToken(), "All");
+                }catch (IOException I){
+                }
+
                 MainTest.testFrame = new MainFrame();
             }
             else

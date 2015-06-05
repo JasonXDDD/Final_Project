@@ -49,11 +49,11 @@ public class BookPanel extends JPanel implements ActionListener{
         add(BT_toolbar, BorderLayout.NORTH);
 
 
-//        bookInfor = new pnBookInfor(bookdata);
-//        pnBottom.add(bookInfor);
-//        pnBottom.setBorder(BorderFactory.createLineBorder(Color.black));
-//        pnBottom.setBackground(Color.WHITE);
-//        add(pnBottom, BorderLayout.SOUTH);
+        bookInfor = new pnBookInfor();
+        pnBottom.add(bookInfor);
+        pnBottom.setBorder(BorderFactory.createLineBorder(Color.black));
+        pnBottom.setBackground(Color.WHITE);
+        add(pnBottom, BorderLayout.SOUTH);
 
 
         setBackground(Color.WHITE);
@@ -79,6 +79,16 @@ public class BookPanel extends JPanel implements ActionListener{
                 System.out.println("Select node: " + a.getText() + " ID: " + a.x);
                 a.setBackground(Color.cyan);
                 a.updateUI();
+
+                for(BookData b : MainTest.bkList){
+                    if(b.getBk_ID() == a.x){
+                        pnBottom.remove(bookInfor);
+                        bookInfor = new pnBookInfor(b);
+                        pnBottom.add(bookInfor);
+                    }
+                }
+
+
             }
             else {
                 a.setBackground(Color.WHITE);

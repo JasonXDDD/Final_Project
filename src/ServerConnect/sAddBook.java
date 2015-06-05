@@ -9,6 +9,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 /**
  * Created by JASON_ on 2015/6/1.
@@ -24,7 +25,8 @@ public class sAddBook {
 
     public sAddBook(String token, String name, String ISBN,
                     String Author, String Publisher, String Publish_Date,
-                    String Price, String Tag, File upload) throws IOException {
+                    String Price, String Tag, Integer[] store_id,
+                    File upload) throws IOException {
         System.out.println("------Add Book------");
 
 
@@ -45,6 +47,13 @@ public class sAddBook {
             user.put("author", Author);
             user.put("publish_date", Publish_Date);
             user.put("tag", Tag);
+            JSONArray stid = new JSONArray();
+            for(Integer a : store_id){
+                stid.put(a);
+            }
+            user.put("category_id", stid);
+
+            System.out.println("sAddBook user: " + user);
 
             urlMod.SendToServer(connection, user, null);
             respondcode = connection.getResponseCode();

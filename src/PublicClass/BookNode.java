@@ -15,7 +15,7 @@ public class BookNode extends JButton{
     public int x;
 
     public BookNode(BookData bk){
-        super(bk.getBk_Name(), ImageProcess.scaleImage(bk.getBk_cover(),200,ImageProcess.Auto));
+        super(bk.getBk_Name(), ImageProcess.scaleImage(bk.getBk_cover(),300,ImageProcess.Width));
 
         x = bk.getBk_ID();
 

@@ -121,7 +121,7 @@ public class EditBook extends BasicDialog implements ActionListener {
                 sab = new sAddBook(gbl.getToken(), enter_Name.getText(),
                         enter_ISBN.getText(), enter_Author.getText(),
                         enter_Publisher.getText(), enter_PubDate.getText(),
-                        enter_Price.getText(), enter_Tag.getText(), file);
+                        enter_Price.getText(), enter_Tag.getText(), null, file);
 
                 System.out.println( "On Dialog: Name: " + enter_Name.getText() +
                         "  ISBN: " + enter_ISBN.getText() +

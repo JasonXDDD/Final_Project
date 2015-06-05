@@ -39,24 +39,24 @@ public class ImageProcess {
 
         if(changetype == Width)
             fixSize = GetPic.getScaledInstance
-                    (SetPicLength(head, i), i, Image.SCALE_SMOOTH);
+                    (SetPicLength(head, i, changetype), i, Image.SCALE_SMOOTH);
         else if(changetype == Height)
             fixSize = GetPic.getScaledInstance
-                    (i, SetPicLength(head, i), Image.SCALE_SMOOTH);
+                    (i, SetPicLength(head, i, changetype), Image.SCALE_SMOOTH);
         else {
             if(head.getIconWidth() >= head.getIconHeight())
                 fixSize = GetPic.getScaledInstance
-                        (SetPicLength(head, i), i, Image.SCALE_SMOOTH);
+                        (SetPicLength(head, i, changetype), i, Image.SCALE_SMOOTH);
             else
                 fixSize = GetPic.getScaledInstance
-                        (i, SetPicLength(head, i), Image.SCALE_SMOOTH);
+                        (i, SetPicLength(head, i, changetype), Image.SCALE_SMOOTH);
         }
         Show = new ImageIcon(fixSize);
 
         return Show;
     }
 
-    public static int SetPicLength(ImageIcon head, int y){
+    public static int SetPicLength(ImageIcon head, int y, int changetype){
         int width = head.getIconWidth();
         int height = head.getIconHeight();
         int x;
@@ -64,14 +64,26 @@ public class ImageProcess {
         System.out.print("BookData Head: w: " + head.getIconWidth() +
                 " h: " + head.getIconHeight());
 
-        if(width >= height) {
+        if(changetype == Width){
             x = width * y / height;
             System.out.println("  after w: " + x);
         }
-        else {
+        else if(changetype == Height){
             x = height * y / width;
             System.out.println("  after h: " + x);
         }
+        else{
+            if(width >= height) {
+                x = width * y / height;
+                System.out.println("  after w: " + x);
+            }
+            else {
+                x = height * y / width;
+                System.out.println("  after h: " + x);
+            }
+        }
+
+
         return x;
     }
 }

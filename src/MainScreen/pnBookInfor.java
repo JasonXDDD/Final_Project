@@ -1,6 +1,7 @@
 package MainScreen;
 
 import DataClass.BookData;
+import PublicClass.ImageProcess;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,8 +22,7 @@ public class pnBookInfor extends JPanel {
     private JLabel bk_Date;
     private JLabel bk_Price;
 
-    private int node = 0;
-    private JLabel bk_node;
+    private ImageIcon Show;
 
     private int[][] position= new int[][]{
             {1,1,1,1}, {2,1,1,1},
@@ -57,8 +57,8 @@ public class pnBookInfor extends JPanel {
         SetLabel(bk_Date);
         bk_Price = new JLabel();
         SetLabel(bk_Price);
-        bk_node = new JLabel();
-        SetLabel(bk_node);
+
+        Show = ImageProcess.scaleImage(book.getBk_cover(), 350, ImageProcess.Width);
 
         for(int i = 0; i <= 13; i++){
             gbc.gridx = position[i][0];
@@ -121,13 +121,97 @@ public class pnBookInfor extends JPanel {
                     break;
 
                 case 12:
-                    bk_head = new JLabel(book.getBk_cover());
+                    bk_head = new JLabel(Show);
+                    gbc.fill = 0;
+                    bk_head.setBorder(BorderFactory.createLineBorder(Color.black));
                     SetLabel(bk_head);
                     add(bk_head,gbc);
                     break;
-                case 13:
-                    bk_node.setText("" + book.getBk_ID());
-                    add(bk_node,gbc);
+            }
+
+        }
+
+        setBackground(Color.WHITE);
+    }
+
+    public pnBookInfor(){
+        gblayout.columnWidths = new int[]{400, 150, 300};
+        gblayout.rowHeights = new int[]{40, 30, 30, 30, 30, 30, 30, 30, 30, 40};
+        setLayout(gblayout);
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = new Insets(2,2,2,2);
+
+        bk_name = new JLabel();
+        SetLabel(bk_name);
+        bk_ISBN = new JLabel();
+        SetLabel(bk_ISBN);
+        bk_Author = new JLabel();
+        SetLabel(bk_Author);
+        bk_Publisher = new JLabel();
+        SetLabel(bk_Publisher);
+        bk_Date = new JLabel();
+        SetLabel(bk_Date);
+        bk_Price = new JLabel();
+        SetLabel(bk_Price);
+
+
+        for(int i = 0; i <= 13; i++){
+            gbc.gridx = position[i][0];
+            gbc.gridy = position[i][1];
+            gbc.gridwidth = position[i][2];
+            gbc.gridheight = position[i][3];
+
+            lbl = new JLabel();
+            SetLabel(lbl);
+
+            switch (i){
+                case 0:
+                    lbl.setText("Name");
+                    add(lbl,gbc);
+                    break;
+                case 2:
+                    lbl.setText("ISBN");
+                    add(lbl,gbc);
+                    break;
+                case 4:
+                    lbl.setText("Author");
+                    add(lbl,gbc);
+                    break;
+                case 6:
+                    lbl.setText("Publisher");
+                    add(lbl,gbc);
+                    break;
+                case 8:
+                    lbl.setText("Date");
+                    add(lbl,gbc);
+                    break;
+                case 10:
+                    lbl.setText("Price");
+                    add(lbl,gbc);
+                    break;
+
+                case 1:
+                    add(bk_name,gbc);
+                    break;
+                case 3:
+                    add(bk_ISBN,gbc);
+                    break;
+                case 5:
+                    add(bk_Author,gbc);
+                    break;
+                case 7:
+                    add(bk_Publisher,gbc);
+                    break;
+                case 9:
+                    add(bk_Date,gbc);
+                    break;
+                case 11:
+                    add(bk_Price,gbc);
+                    break;
+
+                case 12:
+                    bk_head = new JLabel();
+                    add(bk_head,gbc);
                     break;
             }
 

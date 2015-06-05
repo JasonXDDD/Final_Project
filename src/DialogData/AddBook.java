@@ -1,5 +1,7 @@
 package DialogData;
 
+import DataClass.BookData;
+import DataClass.StoreData;
 import MainScreen.MainFrame;
 import MainScreen.MainTest;
 import PublicClass.ImageProcess;
@@ -9,18 +11,24 @@ import ServerConnect.sAddBook;
 import ServerConnect.sRegister;
 
 import javax.swing.*;
+import javax.swing.text.DefaultStyledDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Array;
+import java.util.ArrayList;
 
 /**
  * Created by JASON_ on 2015/6/1.
  */
-public class AddBook extends BasicDialog implements ActionListener{
+public class AddBook extends BasicDialog implements ActionListener, ItemListener{
     private ScreenSize scSize;
     private Gobel gbl;
+    private String[] storeName = new String[100];
 
     private ImageIcon head, Show;
     private JButton headbtn;
@@ -37,6 +45,10 @@ public class AddBook extends BasicDialog implements ActionListener{
     private JTextField enter_Price;
     private JTextField enter_Tag;
 
+    private ArrayList<JComboBox> StoreList = new ArrayList<JComboBox>();
+    private JComboBox enter_Store;
+    private int y = 9;
+
     private File file = null;
     private sAddBook sab;
 
@@ -45,11 +57,18 @@ public class AddBook extends BasicDialog implements ActionListener{
         scSize = new ScreenSize();
 
         SetTheSize(new int[]{50,180,30,80,80,50},
-                new int[]{30,30,30,30,30,30,30,30,30,30,30,30});
+                new int[]{30,30,30,30,30,30,30,30,30,30,30,30,30});
 
 
         head = new ImageIcon(getClass().getResource("head.jpg"));
         Show = ImageProcess.scaleImage(head, 210, ImageProcess.Auto);
+
+
+        for(int a = 0; a < MainTest.stList.size(); a++){
+            storeName[a] = new String(MainTest.stList.get(a).getStore_Name());
+//            System.out.println("Store size: " + MainTest.stList.size());
+            System.out.println("Store " + a + ": " + MainTest.stList.get(a).toString());
+        }
 
         headbtn = new JButton(Show);
         headbtn.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -81,13 +100,22 @@ public class AddBook extends BasicDialog implements ActionListener{
         enter_Tag = new JTextField();
         AddFiled(enter_Tag, new int[]{3,8,1,2});
 
+        enter_Store = new JComboBox(storeName);
+        enter_Store.setSelectedIndex(0);
+        enter_Store.addItemListener(this);
+        AddFiled(enter_Store, new int[]{3, y, 1, 2});
+        StoreList.add(enter_Store);
+
+
         cancel = new JButton("Cancel");
         cancel.addActionListener(this);
-        AddFiled(cancel, new int[]{3,10,1,1});
+        AddFiled(cancel, new int[]{3,y+2,1,1});
 
         OK = new JButton("OK");
         OK.addActionListener(this);
-        AddFiled(OK, new int[]{4,10,1,1});
+        AddFiled(OK, new int[]{4,y+2,1,1});
+
+        y++;
 
         pack();
         setLocation(scSize.getWidth()/2 - this.getWidth()/2,
@@ -121,10 +149,23 @@ public class AddBook extends BasicDialog implements ActionListener{
         else if(e.getSource() == OK){
             try{
                 Error.setText("");
+                ArrayList<Integer> store_id = new ArrayList<Integer>();
+                for(JComboBox a : StoreList) {
+                    store_id.add(MainTest.stList.get(a.getSelectedIndex()).getStore_ID());
+                    System.out.println("select ID: " + MainTest.stList.get(a.getSelectedIndex()).getStore_ID());
+                }
+
+                Integer[] stid = new Integer[store_id.size()];
+                stid = store_id.toArray(stid);
+
+                for(Integer a : stid) {
+                    System.out.println("Store id: " + a);
+                }
+
                 sab = new sAddBook(gbl.getToken(), enter_Name.getText(),
                         enter_ISBN.getText(), enter_Author.getText(),
                         enter_Publisher.getText(), enter_PubDate.getText(),
-                        enter_Price.getText(), enter_Tag.getText(), file);
+                        enter_Price.getText(), enter_Tag.getText(), stid, file);
 
                 System.out.println( "On Dialog: Name: " + enter_Name.getText() +
                         "  ISBN: " + enter_ISBN.getText() +
@@ -146,6 +187,44 @@ public class AddBook extends BasicDialog implements ActionListener{
         }
         else
             Error.setText("名稱錯誤!!");
+        }
+    }
+
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        if(e.getSource() == enter_Store) {
+            if (enter_Store.getSelectedIndex() != -1) {
+                System.out.println("Successful to select on combobox");
+
+                int[] height = new int[100];
+                for (int i = 0; i <= 13 + y - 10; i++) {
+                    height[i] = new Integer(30);
+                }
+                SetTheSize(new int[]{50, 180, 30, 80, 80, 50}, height);
+
+                enter_Store = new JComboBox(storeName);
+                enter_Store.setSelectedIndex(0);
+                enter_Store.addItemListener(this);
+                AddFiled(enter_Store, new int[]{3, y, 1, 2});
+                StoreList.add(enter_Store);
+
+                remove(cancel);
+                cancel = new JButton("Cancel");
+                cancel.addActionListener(this);
+                AddFiled(cancel, new int[]{3, y + 2, 1, 1});
+
+                remove(OK);
+                OK = new JButton("OK");
+                OK.addActionListener(this);
+                AddFiled(OK, new int[]{4, y + 2, 1, 1});
+
+                y++;
+
+                this.revalidate();
+                this.repaint();
+                this.pack();
+            }
         }
     }
 }
