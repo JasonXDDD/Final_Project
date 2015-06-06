@@ -155,8 +155,7 @@ public class Register extends JDialog implements ActionListener{
                 System.out.println();
                 try {
                     sa = new sAddStore(gbl.getToken(), "All");
-                }catch (IOException I){
-                }
+                }catch (IOException I){}
 
                 MainTest.testFrame = new MainFrame();
             }

@@ -38,6 +38,7 @@ public class StoreData {
 
     public void setBKID(Integer BKID) {
         this.BKID = BKID;
+        Books_ID.add(BKID);
     }
 
     public ArrayList<Integer> getBooks_ID() {

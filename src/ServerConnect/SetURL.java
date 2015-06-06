@@ -4,24 +4,18 @@ import DataClass.AccountData;
 import DataClass.BookData;
 import DataClass.StoreData;
 import MainScreen.MainTest;
-import com.sun.prism.Image;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import sun.nio.cs.ext.ISCII91;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.xml.transform.stream.StreamSource;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.Buffer;
-import java.nio.channels.FileChannel;
 import java.util.ArrayList;
-import java.util.stream.Stream;
 
 /**
  * Created by JASON_ on 2015/5/26.
@@ -38,6 +32,7 @@ public class SetURL {
     private static final int sGetStore = 6;
     private static final int sAddBook = 8;
     private static final int sGetBook = 8;
+    private static final int sEditBook = 9;
 
     public SetURL(){ }
 
@@ -67,6 +62,10 @@ public class SetURL {
                 break;
             case sAddBook | sGetBook:
                 ADD_URL = new String("http://163.13.128.116:5000/api/book");
+                break;
+
+            case sEditBook:
+                ADD_URL = new String("http://163.13.128.116:5000/api/book" + ID);
                 break;
 
         }
@@ -300,6 +299,22 @@ public class SetURL {
         }
     }
 
+    public void SetBookIDtoStore(JSONArray objlist){
+        for(int i = 0; i < objlist.length(); i++) {
+            JSONArray store_id = objlist.getJSONObject(i).getJSONArray("category_id");
+
+            for(int a = 0; a < store_id.length(); a++){
+                for(StoreData b : MainTest.stList){
+                    if(b.getStore_ID() == store_id.getInt(a)){
+                        b.setBKID(objlist.getJSONObject(i).getInt("book_id"));
+                        System.out.println("Set book_id on Store: " + b.getStore_ID() +
+                                " book_id: " + b.getBKID());
+                    }
+                }
+            }
+        }
+    }
+
     public void SetBookData(JSONArray objlist, int ID){
         System.out.println(objlist.toString());
         for(int i = 0; i < objlist.length(); i++) {
@@ -316,11 +331,16 @@ public class SetURL {
             MainTest.bookData.setBk_Tag(tags.toString());
             MainTest.bookData.setBk_Delete(objlist.getJSONObject(i).getBoolean("deleted"));
 
+            JSONArray store_id = objlist.getJSONObject(i).getJSONArray("category_id");
+
+            for(int a = 0; a < store_id.length(); a++){
+                MainTest.bookData.setBk_StoreID(store_id.getInt(a));
+            }
+
             if(objlist.getJSONObject(i).isNull("cover_image_url") == false) {
                 MainTest.bookData.setBk_cover_URL(objlist.getJSONObject(i).getString("cover_image_url"));
                 System.out.println("SetData: JSONObj getCoverURL = " + objlist.getJSONObject(i).getString("cover_image_url"));
                 System.out.println("SetData: Book cover_image_url = " + MainTest.bookData.getBk_cover_URL());
-
 
                 try {
                     BufferedImage download = ImageIO.read(new URL(MainTest.bookData.getBk_cover_URL()));
@@ -347,7 +367,7 @@ public class SetURL {
         }
 
         for(BookData a : MainTest.bkList) {
-            System.out.println("store name: " + a.getBk_Name() +
+            System.out.println("book name: " + a.getBk_Name() +
                     "  ID: " + a.getBk_ID() +
                     "  Publisher: " + a.getBk_Publisher() +
                     "  Author: " + a.getBk_Author() +
@@ -355,8 +375,8 @@ public class SetURL {
                     "  ISBN: " + a.getBk_ISBN() +
                     "  Tag: " + a.getBk_Tag() +
                     "  Price: " + a.getBk_Price() +
-                    "  deleted: " + a.isBk_Delete());
-
+                    "  deleted: " + a.isBk_Delete() +
+                    "  StoreID: " + a.writeBk_Stlist());
             System.out.println();
         }
     }

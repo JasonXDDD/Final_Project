@@ -25,6 +25,8 @@ public class BookPanel extends JPanel implements ActionListener{
 
     private ScrollPane sp_scroll;
 
+    private BookData choose;
+
     public BookPanel(){
         setLayout(new BorderLayout());
         sp_scroll = new ScrollPane();
@@ -82,6 +84,7 @@ public class BookPanel extends JPanel implements ActionListener{
 
                 for(BookData b : MainTest.bkList){
                     if(b.getBk_ID() == a.x){
+                        choose = b;
                         pnBottom.remove(bookInfor);
                         bookInfor = new pnBookInfor(b);
                         pnBottom.add(bookInfor);
@@ -95,6 +98,10 @@ public class BookPanel extends JPanel implements ActionListener{
                 a.updateUI();
             }
         }
+    }
+
+    public BookData getChoose() {
+        return choose;
     }
 
     public JPanel getPnCeter() {

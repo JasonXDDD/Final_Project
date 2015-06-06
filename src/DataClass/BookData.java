@@ -1,6 +1,7 @@
 package DataClass;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 /**
  * Created by JASON_ on 2015/5/15.
@@ -19,6 +20,8 @@ public class BookData {
 
     private boolean Bk_Delete;
     private int Bk_ID;
+    private ArrayList<Integer> Bk_Stlist = new ArrayList<Integer>();
+    private Integer Bk_StoreID;
 
     public BookData() {
         Bk_Author = new String();
@@ -70,6 +73,7 @@ public class BookData {
 
     public void setBk_ID(int bk_ID) {
         Bk_ID = bk_ID;
+
     }
 
     public void setBk_cover(ImageIcon bk_cover) {
@@ -118,5 +122,31 @@ public class BookData {
 
     public String getBk_Publisher() {
         return Bk_Publisher;
+    }
+
+    public Integer getBk_StoreID() {
+        return Bk_StoreID;
+    }
+
+    public void setBk_StoreID(Integer bk_StoreID) {
+        Bk_StoreID = bk_StoreID;
+        Bk_Stlist.add(Bk_StoreID);
+    }
+
+    public ArrayList<Integer> getBk_Stlist() {
+        return Bk_Stlist;
+    }
+
+    public String writeBk_Stlist() {
+        String str = new String();
+        for(Integer a : Bk_Stlist){
+            str += a;
+            str += " ";
+        }
+        return str;
+    }
+
+    public void setBk_Stlist(ArrayList<Integer> bk_Stlist) {
+        Bk_Stlist = bk_Stlist;
     }
 }

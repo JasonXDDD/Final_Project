@@ -9,32 +9,31 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
 /**
- * Created by JASON_ on 2015/6/1.
+ * Created by JASON_ on 2015/6/7.
  */
-public class sAddBook {
+public class sEditBook {
     private URL ADD_URL;
     private SetURL urlMod = new SetURL();
     private int respondcode = 0;
     private sUploadFile upfile;
 
-    private static final int sAddBook = 8;
+    private static final int sEditBook = 9;
     private HttpURLConnection connection = null;
 
-    public sAddBook(String token, String name, String ISBN,
+    public sEditBook(String token, String name, String ISBN,
                     String Author, String Publisher, String Publish_Date,
                     String Price, String Tag, Integer[] store_id,
-                    File upload) throws IOException {
-        System.out.println("------Add Book------");
+                    int ID, File upload) throws IOException {
+        System.out.println("------Edit Book------");
 
 
         try {
-            ADD_URL = new URL(urlMod.ChooseRequest(sAddBook, 0));
+            ADD_URL = new URL(urlMod.ChooseRequest(sEditBook, ID));
             connection = (HttpURLConnection) ADD_URL.openConnection();
 
-            connection = urlMod.Astribute(connection, "POST");
+            connection = urlMod.Astribute(connection, "PUT");
 
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestProperty("token", token);
@@ -65,7 +64,7 @@ public class sAddBook {
                 JSONArray objlist = new JSONArray();
                 objlist.put(obj);
                 urlMod.SetBookData(objlist, 0);
-                urlMod.SetBookIDtoStore(objlist);
+                //urlMod.SetBookIDtoStore(objlist);
             }
 
             System.out.println();

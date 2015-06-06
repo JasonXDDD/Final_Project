@@ -1,15 +1,19 @@
 package MainScreen;
 
+import DataClass.BookData;
+import DataClass.StoreData;
 import PublicClass.ToolBar;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.Color;
 
 /**
  * Created by JASON_ on 2015/5/15.
  */
-public class ifStoreTool extends JInternalFrame {
+public class ifStoreTool extends JInternalFrame implements ListSelectionListener{
     private JLayeredPane lp_layer;
     private ScrollPane sp_scroll;
 
@@ -30,9 +34,11 @@ public class ifStoreTool extends JInternalFrame {
         this.lsBS_numBook = booknum;
         this.lsBS_strName = bookname;
         ifST_lsBookStore = new JList(lsBS_strName);
+        ifST_lsBookStore.setSelectedIndex(0);
         ifST_lsBookStore.setBorder(BorderFactory.createTitledBorder("BookStore"));
         ifST_lsBookStore.setBackground(Color.WHITE);
         ifST_lsBookStore.setFont(lsBS_font);
+        ifST_lsBookStore.addListSelectionListener(this);
 
         sp_scroll.add(ifST_lsBookStore);
         getContentPane().add(sp_scroll, BorderLayout.CENTER);
@@ -51,5 +57,37 @@ public class ifStoreTool extends JInternalFrame {
 
     public JList getIfST_lsBookStore() {
         return ifST_lsBookStore;
+    }
+
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+        if(e.getSource() == ifST_lsBookStore){
+
+            try {
+                MainTest.testFrame.getMF_pnBook().getPnCeter().removeAll();
+                MainTest.testFrame.getMF_pnBook().getPnCeter().repaint();
+
+                System.out.println("e.LastIndex: " + e.getLastIndex() +
+                        "e.FirstIndex: " + e.getFirstIndex() +
+                        "lsBookStore getIndex" + ifST_lsBookStore.getSelectedIndex());
+
+
+                for (int b : MainTest.stList.get(ifST_lsBookStore.getSelectedIndex()).getBooks_ID()) {
+                    for (BookData a : MainTest.bkList) {
+                        if (a.getBk_ID() == b) {
+                            System.out.println("Set Book: name:" + a.getBk_Name());
+                            MainTest.testFrame.getMF_pnBook().AddBook(a);
+
+                        }
+                    }
+                }
+
+                MainTest.testFrame.revalidate();
+                MainTest.testFrame.repaint();
+                System.out.println("!!!MainFrame Renew!!!\n");
+            }
+            catch (ArrayIndexOutOfBoundsException I){}
+            catch (IndexOutOfBoundsException I){}
+        }
     }
 }
