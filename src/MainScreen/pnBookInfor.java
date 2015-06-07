@@ -38,7 +38,7 @@ public class pnBookInfor extends JPanel {
 
     public pnBookInfor(BookData book){
         gblayout.columnWidths = new int[]{400, 150, 300};
-        gblayout.rowHeights = new int[]{40, 30, 30, 30, 30, 30, 30, 30, 30, 40};
+        gblayout.rowHeights = new int[]{10, 20, 20, 20, 20, 20, 20, 20, 20, 10};
         setLayout(gblayout);
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(2,2,2,2);
@@ -58,7 +58,7 @@ public class pnBookInfor extends JPanel {
         bk_Price = new JLabel();
         SetLabel(bk_Price);
 
-        Show = ImageProcess.scaleImage(book.getBk_cover(), 350, ImageProcess.Width);
+        Show = ImageProcess.scaleImage(book.getBk_cover(), 200, ImageProcess.Width);
 
         for(int i = 0; i <= 13; i++){
             gbc.gridx = position[i][0];
