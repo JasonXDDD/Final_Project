@@ -1,17 +1,12 @@
 package DialogData;
 
-import DataClass.BookData;
-import DataClass.StoreData;
-import MainScreen.MainFrame;
 import MainScreen.MainTest;
 import PublicClass.ImageProcess;
 import PublicClass.ScreenSize;
-import ServerConnect.Gobel;
+import ServerConnect.Global;
 import ServerConnect.sAddBook;
-import ServerConnect.sRegister;
 
 import javax.swing.*;
-import javax.swing.text.DefaultStyledDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +14,6 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.File;
 import java.io.IOException;
-import java.sql.Array;
 import java.util.ArrayList;
 
 /**
@@ -27,7 +21,7 @@ import java.util.ArrayList;
  */
 public class AddBook extends BasicDialog implements ActionListener, ItemListener{
     private ScreenSize scSize;
-    private Gobel gbl;
+    private Global gbl;
     private String[] storeName = new String[100];
 
     private ImageIcon head, Show;

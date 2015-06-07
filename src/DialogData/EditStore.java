@@ -1,11 +1,9 @@
 package DialogData;
 
-import DataClass.BookData;
 import DataClass.StoreData;
 import MainScreen.MainTest;
 import PublicClass.ScreenSize;
-import ServerConnect.Gobel;
-import ServerConnect.sAddStore;
+import ServerConnect.Global;
 import ServerConnect.sEditStore;
 
 import javax.swing.*;
@@ -26,7 +24,7 @@ public class EditStore extends BasicDialog implements ActionListener{
     private JButton OK;
     private JButton cancel;
 
-    private Gobel gbl;
+    private Global gbl;
     private sEditStore se;
 
     private String choose;

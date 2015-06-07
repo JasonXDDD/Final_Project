@@ -1,13 +1,10 @@
 package DialogData;
 
-import MainScreen.MainFrame;
 import MainScreen.MainTest;
 import PublicClass.ImageProcess;
 import PublicClass.ScreenSize;
-import ServerConnect.Gobel;
+import ServerConnect.Global;
 import ServerConnect.sEditAccount;
-import ServerConnect.sLogin;
-import ServerConnect.sRegister;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +19,7 @@ import java.io.IOException;
 public class EditAccount extends BasicDialog implements ActionListener{
     private ScreenSize scSize;
     private sEditAccount se;
-    private Gobel gbl;
+    private Global gbl;
 
     private File file;
     private ImageIcon Show, head;

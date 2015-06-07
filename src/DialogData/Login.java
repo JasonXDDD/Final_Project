@@ -4,7 +4,7 @@ import MainScreen.MainFrame;
 import MainScreen.MainTest;
 import PublicClass.GBConstraint;
 import PublicClass.ScreenSize;
-import ServerConnect.Gobel;
+import ServerConnect.Global;
 import ServerConnect.sLogin;
 
 import javax.swing.*;
@@ -19,7 +19,7 @@ import java.io.IOException;
 public class Login extends JDialog implements ActionListener{
     private ScreenSize scSize;
     private sLogin sl;
-    private Gobel gbl;
+    private Global gbl;
 
     private JLabel lbl;
     private JLabel Error;

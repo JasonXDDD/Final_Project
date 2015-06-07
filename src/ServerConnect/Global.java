@@ -3,7 +3,7 @@ package ServerConnect;
 /**
  * Created by JASON_ on 2015/5/26.
  */
-public class Gobel {
+public class Global {
     private static String Token;
 
     public static String getToken() {

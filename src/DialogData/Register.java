@@ -5,7 +5,7 @@ import MainScreen.MainTest;
 import PublicClass.GBConstraint;
 import PublicClass.ImageProcess;
 import PublicClass.ScreenSize;
-import ServerConnect.Gobel;
+import ServerConnect.Global;
 import ServerConnect.sAddStore;
 import ServerConnect.sRegister;
 
@@ -25,7 +25,7 @@ public class Register extends JDialog implements ActionListener{
     private sRegister sr;
     private sAddStore sa;
 
-    private Gobel gbl;
+    private Global gbl;
 
     private JLabel lbl;
     private JLabel Error;
@@ -59,7 +59,7 @@ public class Register extends JDialog implements ActionListener{
     public Register(JFrame f, String str, boolean model){
         super(f, str, model);
 
-        gbl = new Gobel();
+        gbl = new Global();
 
         System.out.println("-----Register-----");
 

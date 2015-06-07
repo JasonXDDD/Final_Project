@@ -15,7 +15,7 @@ import java.net.URL;
 public class sGetToken {
     public String ADD_URL = "http://163.13.128.116:5000/api/token";
     public JSONObject obj;
-    public Gobel gbl;
+    public Global gbl;
 
     public sGetToken() throws IOException{
         HttpURLConnection connection = null;

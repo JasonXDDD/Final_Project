@@ -4,7 +4,7 @@ import DataClass.BookData;
 import MainScreen.MainTest;
 import PublicClass.ImageProcess;
 import PublicClass.ScreenSize;
-import ServerConnect.Gobel;
+import ServerConnect.Global;
 import ServerConnect.sEditBook;
 
 import javax.swing.*;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
  */
 public class EditBook extends BasicDialog implements ActionListener, ItemListener {
     private ScreenSize scSize;
-    private Gobel gbl;
+    private Global gbl;
     private String[] storeName = new String[100];
 
     private ImageIcon head, Show;

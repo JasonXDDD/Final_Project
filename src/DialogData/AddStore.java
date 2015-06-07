@@ -1,7 +1,7 @@
 package DialogData;
 
 import PublicClass.ScreenSize;
-import ServerConnect.Gobel;
+import ServerConnect.Global;
 import ServerConnect.sAddStore;
 
 import javax.swing.*;
@@ -23,7 +23,7 @@ public class AddStore extends BasicDialog implements ActionListener{
     private JButton cancel;
 
     private sAddStore sa;
-    private Gobel gbl;
+    private Global gbl;
 
     public AddStore(JFrame f, String str, boolean model){
         super(f,str,model);
